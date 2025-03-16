@@ -1,0 +1,11 @@
+<div class="layout-topbar">
+    <div class="topbar-logo">
+        nzaz
+    </div>
+    <div class="layout-topbar-buttons">
+        <button class="topbar-buttons" [ngClass]="{'active': isHome}" [(ngModel)]="isHome" (click)="changeButtonStatus('home')">home</button>
+        <button class="topbar-buttons" [ngClass]="{'active': isProjects}" [(ngModel)]="isProjects" (click)="changeButtonStatus('projects')">projects</button>
+        <button class="topbar-buttons" [ngClass]="{'active': isPersonal}" [(ngModel)]="isPersonal" (click)="changeButtonStatus('about-me')">about-me</button>
+        <button class="topbar-buttons" [ngClass]="{'active': isContacts}" [(ngModel)]="isContacts" (click)="changeButtonStatus('contacts')">contacts</button>
+    </div>
+</div>

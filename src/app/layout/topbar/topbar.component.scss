@@ -1,0 +1,66 @@
+.layout-topbar {
+ padding: 10px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.layout-topbar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.topbar-logo {
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+.topbar-buttons {
+    padding: 5px;
+    
+}
+/* CSS */
+.topbar-buttons {
+  background-color: transparent;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: 2s all;
+}
+
+.topbar-buttons:hover,
+.topbar-buttons:focus {
+  background-color: #FB8DA0;
+  transition: 1s all;
+}
+
+// .topbar-buttons:active {
+//   background-color: #FB8DA0;
+//   transition: 2s all;
+// }
+.topbar-buttons.active {
+    background-color: #FB8DA0;
+    transition: 1s all;
+  }
+  
