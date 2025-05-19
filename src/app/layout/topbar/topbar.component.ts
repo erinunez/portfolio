@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-type TabStatus = 'home' | 'projects' | 'about-me' | 'contacts';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-topbar',
@@ -10,44 +10,45 @@ type TabStatus = 'home' | 'projects' | 'about-me' | 'contacts';
 })
 
 export class TopbarComponent implements OnInit {
-  @Output() currentTabs = new EventEmitter<TabStatus>();
-  
   isHome = false;
   isProjects = false;
   isPersonal = false;
   isContacts = false;
-  currentStatus: TabStatus = 'home';
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    localStorage.setItem("tabs", this.currentStatus);
-    this.changeButtonStatus(this.currentStatus);
+    // Set initial active state based on current route
+    this.setActiveState(this.router.url);
+
+    // Subscribe to route changes
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: any) => {
+      this.setActiveState(event.url);
+    });
   }
 
-  changeButtonStatus(val: TabStatus): void {
-    this.currentStatus = val;
-    this.currentTabs.emit(this.currentStatus);
-    localStorage.setItem("tabs", this.currentStatus);
-    
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
+
+  private setActiveState(url: string): void {
     // Reset all states
     this.isHome = false;
     this.isProjects = false;
     this.isPersonal = false;
     this.isContacts = false;
 
-    // Set the active state
-    switch (val) {
-      case 'home':
-        this.isHome = true;
-        break;
-      case 'projects':
-        this.isProjects = true;
-        break;
-      case 'about-me':
-        this.isPersonal = true;
-        break;
-      case 'contacts':
-        this.isContacts = true;
-        break;
+    // Set active state based on URL
+    if (url.includes('home') || url === '/') {
+      this.isHome = true;
+    } else if (url.includes('projects')) {
+      this.isProjects = true;
+    } else if (url.includes('about-me')) {
+      this.isPersonal = true;
+    } else if (url.includes('contacts')) {
+      this.isContacts = true;
     }
   }
 }
