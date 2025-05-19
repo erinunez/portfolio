@@ -3,9 +3,9 @@
         nzaz
     </div>
     <div class="layout-topbar-buttons">
-        <button class="topbar-buttons" [ngClass]="{'active': isHome}" (click)="changeButtonStatus('home')">home</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isProjects}" (click)="changeButtonStatus('projects')">projects</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isPersonal}" (click)="changeButtonStatus('about-me')">about-me</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isContacts}" (click)="changeButtonStatus('contacts')">contacts</button>
+        <a routerLink="/" routerLinkActive="active" class="topbar-buttons">home</a>
+        <a routerLink="/projects" routerLinkActive="active" class="topbar-buttons">projects</a>
+        <a routerLink="/about" routerLinkActive="active" class="topbar-buttons">about-me</a>
+        <a routerLink="/contact" routerLinkActive="active" class="topbar-buttons">contacts</a>
     </div>
 </div>
