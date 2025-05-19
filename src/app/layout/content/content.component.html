@@ -1,3 +1,15 @@
 <div class="layout-content">
-    <router-outlet></router-outlet>
+    Hello it works {{ selectedTabs}}
+    <div *ngIf="selectedTabs === 'home'">
+        <app-home></app-home>
+    </div>
+    <div *ngIf="selectedTabs === 'projects'">
+        <app-projects></app-projects>
+    </div>
+    <div *ngIf="selectedTabs === 'about-me'">
+        <app-about-me></app-about-me>
+    </div>
+    <div *ngIf="selectedTabs === 'contacts'">
+        <app-contacts></app-contacts>
+    </div>
 </div>

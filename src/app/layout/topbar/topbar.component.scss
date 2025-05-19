@@ -1,76 +1,105 @@
-// Variables
-$primary-pink: #FF69B4;
-$secondary-pink: #FFB6C1;
-$dark-pink: #FF1493;
-$light-pink: #FFC0CB;
-$white: #FFFFFF;
-$black: #333333;
-
 .layout-topbar {
-  padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to right, $white, $light-pink);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #ff69b4, #ff1493);
+  box-shadow: 0 2px 10px rgba(255, 20, 147, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 
-.layout-topbar-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  .topbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .layout-topbar-buttons {
+    display: flex;
+    gap: 1rem;
+
+    .topbar-buttons {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      text-transform: capitalize;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      &.active {
+        background: white;
+        color: #ff1493;
+        box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+      }
+    }
+  }
 }
 
 .topbar-logo {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: $dark-pink;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
 }
-
+.topbar-buttons {
+    padding: 5px;
+    
+}
+/* CSS */
 .topbar-buttons {
   background-color: transparent;
-  border-radius: 25px;
-  border: 2px solid $primary-pink;
-  color: $black;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
   font-weight: 500;
   height: 40px;
-  padding: 0 1.5rem;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: color 100ms;
+  vertical-align: baseline;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  text-transform: capitalize;
-  
-  &:hover {
-    background-color: $primary-pink;
-    color: $white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba($primary-pink, 0.3);
-  }
-  
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba($primary-pink, 0.3);
-  }
-  
-  &.active {
-    background-color: $primary-pink;
-    color: $white;
-    box-shadow: 0 4px 15px rgba($primary-pink, 0.3);
-  }
+  transition: 2s all;
 }
+
+.topbar-buttons:hover,
+.topbar-buttons:focus {
+  background-color: #FB8DA0;
+  transition: 1s all;
+}
+
+// .topbar-buttons:active {
+//   background-color: #FB8DA0;
+//   transition: 2s all;
+// }
+.topbar-buttons.active {
+    background-color: #FB8DA0;
+    transition: 1s all;
+  }
   

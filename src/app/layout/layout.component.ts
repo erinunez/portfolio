@@ -1,17 +1,20 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { ContentComponent } from './content/content.component';
-import { TopbarComponent } from './topbar/topbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { Component, forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-layout',
-  standalone: true,
-  imports: [CommonModule, RouterModule, ContentComponent, TopbarComponent, FooterComponent],
+  standalone: false,
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss'
+  styleUrl: './layout.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => LayoutComponent),
+      multi: true
+    }
+  ]
 })
+
 export class LayoutComponent {
   currentTabs: any = 'home'
   getCurrentTabs(val:any){
