@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+type TabStatus = 'home' | 'projects' | 'about-me' | 'contacts';
+
 @Component({
   selector: 'app-topbar',
   standalone: false,
@@ -8,42 +10,44 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 
 export class TopbarComponent implements OnInit {
-  @Output() currentTabs = new EventEmitter<any>();
-  isHome:any = true
-  isProjects:any = false
-  isPersonal:any = false
-  isContacts:any = false
-  currentStatus:any = 'home'
+  @Output() currentTabs = new EventEmitter<TabStatus>();
+  
+  isHome = false;
+  isProjects = false;
+  isPersonal = false;
+  isContacts = false;
+  currentStatus: TabStatus = 'home';
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     localStorage.setItem("tabs", this.currentStatus);
-
+    this.changeButtonStatus(this.currentStatus);
   }
 
-  changeButtonStatus(val:any){
-    this.currentStatus = val
+  changeButtonStatus(val: TabStatus): void {
+    this.currentStatus = val;
     this.currentTabs.emit(this.currentStatus);
     localStorage.setItem("tabs", this.currentStatus);
-    if(val === 'home') {
-      this.isHome = true
-      this.isProjects = false
-      this.isPersonal = false
-      this.isContacts = false
-    } else if(val === 'projects') {
-      this.isHome = false
-      this.isProjects = true
-      this.isPersonal = false
-      this.isContacts = false
-    } else if(val === 'about-me') {
-      this.isHome = false
-      this.isProjects = false
-      this.isPersonal = true
-      this.isContacts = false
-    } else if(val === 'contacts') {
-      this.isHome = false
-      this.isProjects = false
-      this.isPersonal = false
-      this.isContacts = true
+    
+    // Reset all states
+    this.isHome = false;
+    this.isProjects = false;
+    this.isPersonal = false;
+    this.isContacts = false;
+
+    // Set the active state
+    switch (val) {
+      case 'home':
+        this.isHome = true;
+        break;
+      case 'projects':
+        this.isProjects = true;
+        break;
+      case 'about-me':
+        this.isPersonal = true;
+        break;
+      case 'contacts':
+        this.isContacts = true;
+        break;
     }
   }
 }
