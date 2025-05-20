@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { TopbarComponent } from './topbar/topbar.component';
@@ -25,6 +26,7 @@ import { ContactsComponent } from './content/contacts/contacts.component';
   imports: [
     BrowserModule,
     CommonModule,
+    RouterModule,
     LayoutRoutingModule
   ],
   exports: [
