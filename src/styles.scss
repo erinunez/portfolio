@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-pink: #ff1493;
-  --light-pink: #ff69b4;
-  --dark-pink: #c71585;
+  --primary-pink: #FC6C85;
+  --light-pink: #FFB6C1;
+  --dark-pink: #E75480;
   --white: #ffffff;
   --light-gray: #f8f9fa;
   --text-dark: #2c3e50;
@@ -63,7 +63,7 @@ a {
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+    box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
   }
 }
 
