@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -7,9 +7,14 @@ import { Router, NavigationEnd } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  skills:any[] = []
   constructor(private router: Router) {}
   
+  ngOnInit(): void {
+    this.skills = [ 'Vue', 'Angular', 'Javascript', 'Typescript', 'SCSS', 'HTML5', 'CSS']
+  }
+
   navigateTo(route: string): void {
     this.router.navigate([route]);
   }

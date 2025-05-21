@@ -6,6 +6,7 @@
   padding: 2rem 0;
   position: relative;
   overflow: hidden;
+  // background-color: cyan;
 
   .hero-content {
     flex: 1;
@@ -43,15 +44,16 @@
   }
 
   .hero-description {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-dark);
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
     opacity: 0.9;
   }
 
   .hero-buttons {
     display: flex;
     gap: 1rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 
     .btn-outline {
@@ -96,6 +98,45 @@
       animation: morph 8s ease-in-out infinite;
     }
   }
+
+  .profile-card {
+    margin-top: 20px;
+    border-left: 5px solid var(--light-pink);
+    padding: 30px;
+    max-width: 700px;
+  }
+
+  .title {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .title .pink {
+    color: #ff5f94;
+    font-weight: 700;
+  }
+
+  .title .black {
+    color: black;
+    font-weight: 700;
+  }
+
+  .description {
+    text-align: justify;
+    // font-size: 16px;
+    line-height: 1.6;
+    // color: #000;
+    font-size: 1rem;
+    color: var(--text-dark);
+    // margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .description strong {
+    font-weight: 700;
+  }
+
+
 }
 
 @keyframes morph {
