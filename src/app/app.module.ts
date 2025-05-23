@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // Import FormsModule
-
+// import { FormsModule } from '@angular/forms';
+// import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 import { LayoutModule } from './layout/layout.module';
 
@@ -14,9 +15,11 @@ import { LayoutModule } from './layout/layout.module';
   ],
   imports: [
     // BrowserModule,
-    FormsModule,
+    // FormsModule,
+    // CommonModule,
     AppRoutingModule,
     LayoutModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
