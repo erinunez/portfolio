@@ -3,9 +3,11 @@ import { Component } from '@angular/core';
 interface Project {
   id: number;
   title: string;
+  client: string;
   description: string;
   longDescription: string;
   imageUrl: string;
+  referenceImages: string[];
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
@@ -29,9 +31,15 @@ export class ProjectsComponent {
       id: 1,
       title: 'Portfolio Website',
       description: 'A modern portfolio website built with Angular',
+      client: 'Personal',
       longDescription:
         'A responsive portfolio website showcasing my work and skills, built with Angular and featuring a beautiful watermelon pink theme.',
       imageUrl: 'assets/images/portfolio.jpg',
+      referenceImages: [
+        'assets/images/portfolio.jpg',
+        'assets/images/portfolio-2.jpg',
+        'assets/images/portfolio-3.jpg'
+      ],
       technologies: ['Angular', 'TypeScript', 'SCSS', 'HTML5'],
       githubUrl: 'https://github.com/yourusername/portfolio',
       liveUrl: 'https://your-portfolio.com',
@@ -58,7 +66,13 @@ export class ProjectsComponent {
       title: 'GIS Mapping Application',
       description: 'A web-based GIS application for visualizing and analyzing geographical data.',
       longDescription: 'An advanced GIS application that allows users to visualize, analyze, and interact with geographical data in real-time.',
+      client: 'Personal',
       imageUrl: 'assets/images/project1.jpg',
+      referenceImages: [
+        'assets/images/project1.jpg',
+        'assets/images/project1-2.jpg',
+        'assets/images/project1-3.jpg'
+      ],
       technologies: ['Angular', 'TypeScript', 'GIS', 'Leaflet.js'],
       githubUrl: 'https://github.com/yourusername/gis-app',
       liveUrl: 'https://gis-app-demo.com',
@@ -86,6 +100,12 @@ export class ProjectsComponent {
       description: 'Interactive 3D product visualization using Babylon.js for an e-commerce platform.',
       longDescription: 'A cutting-edge 3D product viewer that allows customers to interact with products in a virtual environment.',
       imageUrl: 'assets/images/project2.jpg',
+      client: 'Personal',
+      referenceImages: [
+        'assets/images/project2.jpg',
+        'assets/images/project2-2.jpg',
+        'assets/images/project2-3.jpg'
+      ],
       technologies: ['Babylon.js', 'TypeScript', 'WebGL', 'Three.js'],
       githubUrl: 'https://github.com/yourusername/3d-viewer',
       liveUrl: 'https://3d-viewer-demo.com',
@@ -106,6 +126,40 @@ export class ProjectsComponent {
         'Implemented touch controls for mobile',
         'Created fallback rendering for older browsers',
       ],
+    },
+    {
+      id: 4,
+      title: 'Vendor KPI System',
+      client: 'Johor Corporation',
+      description: 'Evaluation of Key Performance Indicators (KPIs) for vendors',
+      longDescription: 'This website empowers vendors to register seamlessly and enables robust evaluation of their Key Performance Indicators (KPIs) to drive success and growth.',
+      imageUrl: 'assets/projects/testinggg.png',
+      referenceImages: [
+        'assets/projects/testinggg.png',
+        'assets/projects/kpi-2.png',
+        'assets/projects/kpi-3.png'
+      ],
+      technologies: ['C#', '.NET', 'Bookstrap'],
+      githubUrl: '',
+      liveUrl: '',
+      features: [
+        'Vendor registration',
+        'KPI creation',
+        'KPI submission',
+        'KPI evaluation',
+        'Project creation',
+        'Report generation',
+        'Performance tracking',
+        'Data visualization',
+      ],
+      challenges: [
+        'Customization of KPI evaluation',
+        'Report generation',
+      ],
+      solutions: [
+        'Used crystal report for report generation',
+        'Created dynamic form for KPI evaluation',
+      ],
     }
   ];
 
@@ -119,5 +173,10 @@ export class ProjectsComponent {
     this.showModal = false;
     this.selectedProject = null;
     document.body.style.overflow = ''; // Restore scrolling
+  }
+
+  openImageModal(imageUrl: string) {
+    // Create a new window/tab with the image
+    window.open(imageUrl, '_blank');
   }
 }

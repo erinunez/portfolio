@@ -30,22 +30,41 @@
       <div class="modal-body" *ngIf="selectedProject">
         <div class="modal-header">
           <h2>{{ selectedProject.title }}</h2>
-          <div class="modal-links">
+          <!-- <div class="modal-links">
             <a [href]="selectedProject.liveUrl" target="_blank" class="btn btn-small">
               <i class="fas fa-external-link-alt"></i> Live Demo
             </a>
             <a [href]="selectedProject.githubUrl" target="_blank" class="btn btn-small btn-outline">
               <i class="fab fa-github"></i> Source Code
             </a>
-          </div>
+          </div> -->
         </div>
 
         <div class="modal-image">
-          <img [src]="selectedProject.imageUrl" [alt]="selectedProject.title">
+          <div class="screen">
+            <img [src]="selectedProject.imageUrl" [alt]="selectedProject.title">
+          </div>
+          <div class="camera"></div>
         </div>
 
         <div class="modal-description">
           <p>{{ selectedProject.longDescription }}</p>
+        </div>
+
+        <div class="reference-gallery" *ngIf="selectedProject.referenceImages.length > 0">
+          <h3>Project Screenshots</h3>
+          <div class="gallery-grid">
+            <div class="gallery-item" *ngFor="let image of selectedProject.referenceImages">
+              <img [src]="image" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image)">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-tech">
+          <h3>Client</h3>
+          <div>
+            <span >{{ selectedProject.client }}</span>
+          </div>
         </div>
 
         <div class="modal-tech">

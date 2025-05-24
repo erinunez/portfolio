@@ -5,12 +5,13 @@
 
 .section-title {
   font-family: 'Press Start 2P', cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--primary-color);
   margin-bottom: 3rem;
   text-align: center;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   letter-spacing: 2px;
+  
 }
 
 .projects-grid {
@@ -156,15 +157,57 @@
 
   .modal-image {
     width: 100%;
-    height: 300px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 2rem;
+    height: 400px;
+    position: relative;
+    margin: 2rem auto;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg);
 
-    img {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      background: #333;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .screen {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 2;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .camera {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background: #111;
+      border-radius: 50%;
+      z-index: 3;
     }
   }
 
@@ -172,6 +215,58 @@
     margin-bottom: 2rem;
     line-height: 1.6;
     color: var(--text-color);
+  }
+
+  .reference-gallery {
+    margin-bottom: 2rem;
+
+    h3 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      &::after {
+        content: '🔍';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        display: block;
+      }
+    }
   }
 
   .modal-tech {
