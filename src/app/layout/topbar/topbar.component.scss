@@ -1,10 +1,10 @@
 .layout-topbar {
- display: flex;
- justify-content: space-between;
- align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
-  background: linear-gradient(to right, var(--light-pink), var(--primary-pink));
-  box-shadow: 0 2px 10px rgba(252, 108, 133, 0.2);
+  background: linear-gradient(to right, var(--background-light), var(--secondary-color));
+  box-shadow: 0 4px 15px rgba(252, 108, 133, 0.2);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,38 +12,100 @@
   z-index: 1000;
 
   .topbar-logo {
-    font-size: 2rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: white;
+    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
+    text-shadow: 
+      var(--pixel-size) 0 0 var(--background-light),
+      calc(var(--pixel-size) * -1) 0 0 var(--background-light),
+      0 var(--pixel-size) 0 var(--background-light),
+      0 calc(var(--pixel-size) * -1) 0 var(--background-light);
+    position: relative;
+    padding: 0.5rem 1rem;
+    // background: rgba(255, 255, 255, 0.9);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - var(--pixel-size)),
+      calc(100% - var(--pixel-size)) 100%,
+      0% 100%
+    );
 
-.layout-topbar-buttons {
+    &::before {
+      content: '';
+      position: absolute;
+      top: var(--pixel-size);
+      left: var(--pixel-size);
+      right: var(--pixel-size);
+      bottom: var(--pixel-size);
+      background: var(--background-light);
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - var(--pixel-size)),
+        calc(100% - var(--pixel-size)) 100%,
+        0% 100%
+      );
+      z-index: -1;
+    }
+  }
+
+  .layout-topbar-buttons {
     display: flex;
     gap: 1rem;
 
     .topbar-buttons {
-      padding: 0.5rem 1.5rem;
-      border: none;
-      border-radius: 25px;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      font-size: 1rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      // background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-color);
       cursor: pointer;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      text-transform: capitalize;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - var(--pixel-size)),
+        calc(100% - var(--pixel-size)) 100%,
+        0% 100%
+      );
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: var(--pixel-size);
+        left: var(--pixel-size);
+        right: var(--pixel-size);
+        bottom: var(--pixel-size);
+        background: var(--background-light);
+        clip-path: polygon(
+          0% 0%,
+          100% 0%,
+          100% calc(100% - var(--pixel-size)),
+          calc(100% - var(--pixel-size)) 100%,
+          0% 100%
+        );
+        z-index: -1;
+      }
 
       &:hover {
-        background: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
+        background: var(--primary-color);
+        // color: var(--background-light);
+        color: black;
+        box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
       }
 
       &.active {
-        background: white;
-        color: var(--primary-pink);
+        background: var(--primary-color);
+        // color: var(--background-light);
+        color: black;
         box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
       }
     }

@@ -1,98 +1,332 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
 :root {
-  --primary-pink: #FC6C85;
-  --light-pink: #FFB6C1;
-  --dark-pink: #E75480;
-  --white: #ffffff;
-  --light-gray: #f8f9fa;
+  --primary-color: #FC6C85;
+  --secondary-color: #FFB6C1;
+  --accent-color: #E75480;
+  --background-dark: #FFF0F5;
+  --background-light: #FFE4E1;
+  --text-light: #2c3e50;
   --text-dark: #2c3e50;
+  --pixel-size: 4px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  image-rendering: pixelated;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--light-gray);
+  font-family: 'VT323', monospace;
+  background-color: var(--background-dark);
   color: var(--text-dark);
   line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 25px 25px, var(--secondary-color) 2%, transparent 0%),
+    radial-gradient(circle at 75px 75px, var(--secondary-color) 2%, transparent 0%),
+    linear-gradient(45deg, var(--background-light) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--background-light) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--background-light) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--background-light) 75%);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px, 20px 20px, 20px 20px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
 }
 
 .container {
   max-width: 80vw;
   margin: 0 auto;
   padding: 0 1rem;
+  image-rendering: pixelated;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(252, 108, 133, 0.2);
 }
 
 .section {
   padding: 5rem 0;
   margin-top: 4rem;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--pixel-size);
+    background: var(--primary-color);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      95% 100%,
+      95% 50%,
+      90% 50%,
+      90% 100%,
+      85% 100%,
+      85% 50%,
+      80% 50%,
+      80% 100%,
+      75% 100%,
+      75% 50%,
+      70% 50%,
+      70% 100%,
+      65% 100%,
+      65% 50%,
+      60% 50%,
+      60% 100%,
+      55% 100%,
+      55% 50%,
+      50% 50%,
+      50% 100%,
+      45% 100%,
+      45% 50%,
+      40% 50%,
+      40% 100%,
+      35% 100%,
+      35% 50%,
+      30% 50%,
+      30% 100%,
+      25% 100%,
+      25% 50%,
+      20% 50%,
+      20% 100%,
+      15% 100%,
+      15% 50%,
+      10% 50%,
+      10% 100%,
+      5% 100%,
+      5% 50%,
+      0% 50%
+    );
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-pink);
+  font-family: 'Press Start 2P', cursive;
+  color: var(--primary-color);
   margin-bottom: 1rem;
+  text-shadow: 
+    var(--pixel-size) 0 0 var(--background-light),
+    calc(var(--pixel-size) * -1) 0 0 var(--background-light),
+    0 var(--pixel-size) 0 var(--background-light),
+    0 calc(var(--pixel-size) * -1) 0 var(--background-light);
+  letter-spacing: 2px;
+  line-height: 1.4;
 }
 
 a {
-  color: var(--primary-pink);
+  color: var(--primary-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
 
   &:hover {
-    color: var(--dark-pink);
+    color: var(--accent-color);
+    transform: scale(1.1);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: var(--pixel-size);
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 
 .btn {
   display: inline-block;
   padding: 0.8rem 2rem;
-  border-radius: 25px;
-  background: linear-gradient(to right, var(--primary-pink), var(--light-pink));
-  color: var(--white);
+  background: var(--primary-color);
+  color: var(--text-light);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-weight: 500;
-  text-transform: capitalize;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  position: relative;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - var(--pixel-size)),
+    calc(100% - var(--pixel-size)) 100%,
+    0% 100%
+  );
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: var(--pixel-size);
+    left: var(--pixel-size);
+    right: var(--pixel-size);
+    bottom: var(--pixel-size);
+    background: var(--background-light);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - var(--pixel-size)),
+      calc(100% - var(--pixel-size)) 100%,
+      0% 100%
+    );
+    z-index: -1;
+  }
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
+    background: var(--accent-color);
   }
 }
 
 .card {
-  background: var(--white);
-  border-radius: 15px;
+  background: var(--background-light);
   padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  position: relative;
+  border: var(--pixel-size) solid var(--primary-color);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - var(--pixel-size)),
+    calc(100% - var(--pixel-size)) 100%,
+    0% 100%
+  );
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: var(--pixel-size);
+    left: var(--pixel-size);
+    right: var(--pixel-size);
+    bottom: var(--pixel-size);
+    background: var(--background-dark);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - var(--pixel-size)),
+      calc(100% - var(--pixel-size)) 100%,
+      0% 100%
+    );
+    z-index: -1;
+  }
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
   }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: var(--pixel-size);
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--light-gray);
+  background: var(--background-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--light-pink);
-  border-radius: 4px;
+  background: var(--primary-color);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - var(--pixel-size)),
+    calc(100% - var(--pixel-size)) 100%,
+    0% 100%
+  );
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-pink);
+  background: var(--accent-color);
+}
+
+/* Pixel art utility classes */
+.pixel-border {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--pixel-size));
+    left: 0;
+    width: 100%;
+    height: var(--pixel-size);
+    background: var(--primary-color);
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% 100%,
+      95% 100%,
+      95% 50%,
+      90% 50%,
+      90% 100%,
+      85% 100%,
+      85% 50%,
+      80% 50%,
+      80% 100%,
+      75% 100%,
+      75% 50%,
+      70% 50%,
+      70% 100%,
+      65% 100%,
+      65% 50%,
+      60% 50%,
+      60% 100%,
+      55% 100%,
+      55% 50%,
+      50% 50%,
+      50% 100%,
+      45% 100%,
+      45% 50%,
+      40% 50%,
+      40% 100%,
+      35% 100%,
+      35% 50%,
+      30% 50%,
+      30% 100%,
+      25% 100%,
+      25% 50%,
+      20% 50%,
+      20% 100%,
+      15% 100%,
+      15% 50%,
+      10% 50%,
+      10% 100%,
+      5% 100%,
+      5% 50%,
+      0% 50%
+    );
+  }
+}
+
+/* Pixel art animations */
+@keyframes pixelate {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  25% {
+    clip-path: polygon(0% 0%, 50% 0%, 50% 50%, 0% 50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 50%, 50% 50%);
+  }
+  75% {
+    clip-path: polygon(0% 50%, 50% 50%, 50% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+  }
 }
