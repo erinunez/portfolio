@@ -64,6 +64,27 @@ export class ContactsComponent {
     }
   }
 
+  downloadResume() {
+    try {
+      const resumePath = 'assets/resume/ZaireenAkhzar_Resume 25.0.0.pdf';
+      
+      // Create a link element
+      const link = document.createElement('a');
+      link.href = resumePath;
+      link.download = 'ZaireenAkhzar_Resume.pdf'; // Name of the downloaded file
+      
+      // Append to body, click, and remove
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      this.showToastMessage('Resume downloaded successfully!', 'success');
+    } catch (error) {
+      this.showToastMessage('Failed to download resume. Please try again.', 'error');
+      console.error('Error downloading resume:', error);
+    }
+  }
+
   private resetForm() {
     this.formData = {
       name: '',
