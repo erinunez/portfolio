@@ -14,35 +14,16 @@
       <div class="skills-section">
         <h2>Skills</h2>
         <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Frontend</h3>
+          <div class="skill-category" *ngFor="let category of skillCategories">
+            <h3>{{category.title}}</h3>
             <ul class="skill-list">
-              <li>HTML5 & CSS3</li>
-              <li>JavaScript/TypeScript</li>
-              <li>Angular</li>
-              <li>React</li>
-              <li>Vue.js</li>
-              <li>SCSS/SASS</li>
-            </ul>
-          </div>
-          
-          <div class="skill-category">
-            <h3>Backend</h3>
-            <ul class="skill-list">
-              <li>C#</li>
-              <li>.NET</li>
-              <li>Node.js</li>
-              <li>RESTful APIs</li>
-            </ul>
-          </div>
-          
-          <div class="skill-category">
-            <h3>Tools & Others</h3>
-            <ul class="skill-list">
-              <li>Git</li>
-              <li>GIS</li>
-              <li>Babylon 3D</li>
-              <li>Responsive Design</li>
+              <li *ngFor="let skill of category.skills">
+                <span class="skill-name">{{skill.name}}</span>
+                <div class="skill-rating">
+                  <span class="heart" *ngFor="let heart of [1,2,3,4,5]" 
+                        [class.filled]="heart <= skill.rating">♥</span>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
