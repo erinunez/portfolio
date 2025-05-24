@@ -10,7 +10,8 @@ import { filter } from 'rxjs/operators';
 })
 
 export class TopbarComponent implements OnInit {
-  isHome = false;
+  isCollapsed = false;
+  isHome = true;
   isProjects = false;
   isPersonal = false;
   isContacts = false;
@@ -29,7 +30,18 @@ export class TopbarComponent implements OnInit {
     });
   }
 
+  toggleSidebar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+
   navigateTo(route: string): void {
+    // Update active states
+    this.isHome = route === 'home';
+    this.isProjects = route === 'projects';
+    this.isPersonal = route === 'about-me';
+    this.isContacts = route === 'contacts';
+
+    // Navigate to the route
     this.router.navigate([route]);
   }
 

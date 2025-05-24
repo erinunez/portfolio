@@ -1,11 +1,31 @@
-<div class="layout-topbar">
-    <div class="topbar-logo">
-        nzaz
-    </div>
-    <div class="layout-topbar-buttons">
-        <button class="topbar-buttons" [ngClass]="{'active': isHome}" (click)="navigateTo('home')">home</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isProjects}" (click)="navigateTo('projects')">projects</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isPersonal}" (click)="navigateTo('about-me')">about-me</button>
-        <button class="topbar-buttons" [ngClass]="{'active': isContacts}" (click)="navigateTo('contacts')">contacts</button>
+<div class="layout-topbar" [class.collapsed]="isCollapsed">
+    <button class="toggle-button" (click)="toggleSidebar()">
+        <span class="toggle-icon">{{ isCollapsed ? '→' : '←' }}</span>
+    </button>
+    <div class="topbar-content">
+        <div class="topbar-logo">
+            nzaz
+        </div>
+        <div class="layout-topbar-buttons">
+            <button class="topbar-buttons" [ngClass]="{'active': isHome}" (click)="navigateTo('home')">
+                <span class="button-icon"><img src="assets/icon/smartphone.png" style="height: 20px; width: 20px;" alt="home"></span>
+                <span class="button-text">home</span>
+            </button>
+            <button class="topbar-buttons" [ngClass]="{'active': isProjects}" (click)="navigateTo('projects')">
+                <!-- <span class="button-icon">💻</span> -->
+                <span class="button-icon"><img src="assets/icon/laptop.png" style="height: 20px; width: 20px;" alt="home"></span>
+                <span class="button-text">projects</span>
+            </button>
+            <button class="topbar-buttons" [ngClass]="{'active': isPersonal}" (click)="navigateTo('about-me')">
+                <!-- <span class="button-icon">👤</span> -->
+                <span class="button-icon"><img src="assets/icon/love.png" style="height: 20px; width: 20px;" alt="home"></span>
+                <span class="button-text">about-me</span>
+            </button>
+            <button class="topbar-buttons" [ngClass]="{'active': isContacts}" (click)="navigateTo('contacts')">
+                <!-- <span class="button-icon">📧</span> -->
+                <span class="button-icon"><img src="assets/icon/photo-book.png" style="height: 20px; width: 20px;" alt="home"></span>
+                <span class="button-text">contacts</span>
+            </button>
+        </div>
     </div>
 </div>

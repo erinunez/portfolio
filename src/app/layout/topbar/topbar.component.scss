@@ -1,19 +1,76 @@
 .layout-topbar {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding: 1rem 2rem;
-  background: linear-gradient(to right, var(--background-light), var(--secondary-color));
-  box-shadow: 0 4px 15px rgba(252, 108, 133, 0.2);
+  padding: 2rem 1rem;
+  background: linear-gradient(to bottom, var(--background-light), var(--secondary-color));
+  box-shadow: 4px 0 15px rgba(252, 108, 133, 0.2);
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  bottom: 0;
+  width: 200px;
   z-index: 1000;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    width: 60px;
+    padding: 2rem 0.5rem;
+
+    .topbar-logo {
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .topbar-buttons {
+      padding: 0.8rem;
+      justify-content: center;
+
+      .button-text {
+        display: none;
+      }
+
+      .button-icon {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      &:hover {
+        transform: translateX(5px);
+        
+        .button-icon {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  .toggle-button {
+    position: absolute;
+    right: -15px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1001;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   .topbar-logo {
     font-family: 'Press Start 2P', cursive;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -25,7 +82,9 @@
       0 calc(var(--pixel-size) * -1) 0 var(--background-light);
     position: relative;
     padding: 0.5rem 1rem;
-    // background: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    text-align: center;
+    transition: all 0.3s ease;
     clip-path: polygon(
       0% 0%,
       100% 0%,
@@ -55,19 +114,25 @@
 
   .layout-topbar-buttons {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
+    width: 100%;
 
     .topbar-buttons {
       font-family: 'VT323', monospace;
       font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-      // background: rgba(255, 255, 255, 0.9);
+      padding: 0.8rem 1rem;
       color: var(--primary-color);
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
       position: relative;
+      text-align: left;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       clip-path: polygon(
         0% 0%,
         100% 0%,
@@ -75,6 +140,17 @@
         calc(100% - var(--pixel-size)) 100%,
         0% 100%
       );
+
+      .button-icon {
+        font-size: 1.4rem;
+        transition: transform 0.3s ease;
+        min-width: 1.4rem;
+        text-align: center;
+      }
+
+      .button-text {
+        transition: opacity 0.3s ease;
+      }
 
       &::before {
         content: '';
@@ -95,21 +171,33 @@
       }
 
       &:hover {
-        transform: translateY(-2px);
+        transform: translateX(5px);
         background: var(--primary-color);
-        // color: var(--background-light);
         color: black;
         box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
+
+        .button-icon {
+          transform: scale(1.1);
+        }
       }
 
       &.active {
         background: var(--primary-color);
-        // color: var(--background-light);
         color: black;
         box-shadow: 0 4px 15px rgba(252, 108, 133, 0.3);
       }
     }
   }
+}
+
+// Add padding to main content to account for sidebar
+:host ::ng-deep router-outlet + * {
+  margin-left: 200px;
+  transition: margin-left 0.3s ease;
+}
+
+.layout-topbar.collapsed + :host ::ng-deep router-outlet + * {
+  margin-left: 60px;
 }
 
 .topbar-logo {
