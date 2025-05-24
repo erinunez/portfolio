@@ -11,6 +11,7 @@ import { HomeComponent } from './content/home/home.component';
 import { ProjectsComponent } from './content/projects/projects.component';
 import { AboutMeComponent } from './content/about-me/about-me.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
+import { ToastComponent } from '../shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ContactsComponent } from './content/contacts/contacts.component';
     BrowserModule,
     CommonModule,
     FormsModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    ToastComponent
   ],
   exports: [
     LayoutComponent,

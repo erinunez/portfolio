@@ -31,20 +31,16 @@
           </div>
         </div>
       </div>
-      hellowqewq
+      
       <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-github"></i>aa</a>
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
         <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
       </div>
-      <i class="fas fa-user"></i>
-<i class="fab fa-github"></i>
-<i class="fas fa-check-circle"></i>
-
     </div>
     
     <div class="contact-form">
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" [(ngModel)]="formData.name" required>
@@ -59,14 +55,26 @@
           <label for="subject">Subject</label>
           <input type="text" id="subject" name="subject" [(ngModel)]="formData.subject" required>
         </div>
-        sds
+        
         <div class="form-group">
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" [(ngModel)]="formData.message" required></textarea>
         </div>
         
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="btn" [disabled]="isLoading || !contactForm.form.valid">
+          <span *ngIf="!isLoading">Send Message</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin"></i> Sending...
+          </span>
+        </button>
       </form>
     </div>
   </div>
+
+  <app-toast
+    [message]="toastMessage"
+    [type]="toastType"
+    [show]="showToast"
+    (close)="showToast = false">
+  </app-toast>
 </section>
