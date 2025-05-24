@@ -1,5 +1,5 @@
 <section class="about-section">
-  <div class="about-content">
+  <!-- <div class="about-content">
     <h1 class="section-title">About Me</h1>
     <div class="about-grid">
       <div class="about-text">
@@ -29,5 +29,71 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div class="about-content">
+    <div>
+      <h1 class="section-title">About Me</h1>
+      <div class="about-grid">
+        <div class="personal-skill">
+          <div class="personal-skills-grid">
+            <div class="personal-skill-card" *ngFor="let skill of personalSkills">
+              <div class="skill-icon">{{skill.icon}}</div>
+              <div class="skill-content">
+                <!-- <h5>{{skill.name}}</h5> -->
+                <span class="personal-skill-name"> {{ skill.name }}</span>
+                <p>{{skill.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="owner-image-container">
+            <img src="assets/images/image.jpg" alt="Zaireen Akhzar" class="owner-image">
+            <div class="image-overlay"></div>
+          </div>
+          <p class="bio">
+            Back in 2019, I felt lost after graduation, unsure of my path and lacking skills in development. Yet, deep
+            down, I believed I would someday become someone valuable. Fast forward to today, and I've been working as a
+            front-end developer for nearly five wonderful years.
+  
+  
+          </p>
+          <p class="bio">
+            I've embarked on an incredible journey as a front-end developer, transforming from a novice to a capable
+            contributor. While I've gained invaluable skills, my aspirations extend further—I aim to become a full-stack
+            developer and deepen my expertise in front-end development.
+          </p>
+  
+          <p class="bio">
+  
+            In addition to my role as a full-time front-end developer, I cherish my roles as a loving mother, a devoted
+            wife, and a passionate gamer at home
+          </p>
+        </div>
+
+      </div>
+    
+    </div>
+    <div style="margin-top: 5rem;">
+      <h1 class="section-title">Skills</h1>
+      <div class="skills-section">
+        <div class="skills-grid">
+          <div class="skill-category" *ngFor="let category of skillCategories">
+            <span class="skill-category-title"> {{ category.title }}</span>
+            <ul class="skill-list">
+              <li *ngFor="let skill of category.skills">
+                <span class="skill-name">{{skill.name}}</span>
+                <div class="skill-rating">
+                  <span class="heart" *ngFor="let heart of [1,2,3,4,5]" 
+                        [class.filled]="heart <= Math.floor(skill.rating)"
+                        [class.half]="heart === Math.ceil(skill.rating) && skill.rating % 1 !== 0">♥</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
