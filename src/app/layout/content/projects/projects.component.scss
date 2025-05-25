@@ -226,45 +226,85 @@
     }
 
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      display: flex;
       gap: 1rem;
-      margin-top: 1rem;
-    }
+      overflow-x: auto;
+      padding: 1rem 0;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-color) transparent;
 
-    .gallery-item {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
 
-      &:hover {
-        transform: scale(1.05);
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 3px;
+      }
+
+      .gallery-item {
+        flex: 0 0 300px;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: scale(1.05);
+
+          &::after {
+            opacity: 1;
+          }
+
+          .image-description {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
         &::after {
-          opacity: 1;
+          content: '🔍';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 2rem;
+          color: white;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          z-index: 2;
         }
-      }
 
-      &::after {
-        content: '🔍';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 2rem;
-        color: white;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-      }
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          display: block;
+        }
 
-      img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        display: block;
+        .image-description {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.8);
+          color: white;
+          padding: 0.8rem;
+          font-size: 0.9rem;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: all 0.3s ease;
+          z-index: 1;
+        }
       }
     }
   }

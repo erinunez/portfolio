@@ -29,7 +29,7 @@
 
       <div class="modal-body" *ngIf="selectedProject">
         <div class="modal-header">
-          <h2>{{ selectedProject.title }}</h2>
+          <h2>{{ selectedProject.title }} ({{ selectedProject.category }})</h2>
           <!-- <div class="modal-links">
             <a [href]="selectedProject.liveUrl" target="_blank" class="btn btn-small">
               <i class="fas fa-external-link-alt"></i> Live Demo
@@ -55,7 +55,8 @@
           <h3>Project Screenshots</h3>
           <div class="gallery-grid">
             <div class="gallery-item" *ngFor="let image of selectedProject.referenceImages">
-              <img [src]="image" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image)">
+              <img [src]="image.url" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image.url)">
+              <div class="image-description">{{ image.description }}</div>
             </div>
           </div>
         </div>
