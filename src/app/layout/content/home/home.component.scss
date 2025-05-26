@@ -1,17 +1,21 @@
 .hero-section {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   min-height: calc(100vh - 80px);
   padding: 2rem 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  gap: 2rem;
   // background-color: cyan;
 
   .hero-content {
     flex: 1;
-    max-width: 600px;
+    width: 50%;
     z-index: 1;
+    padding: 0 1rem;
   }
 
   .hero-title {
@@ -85,22 +89,6 @@
     }
   }
 
-  .hero-image {
-    flex: 1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .shape {
-      width: 400px;
-      height: 400px;
-      background: linear-gradient(45deg, var(--light-pink), var(--primary-pink));
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      animation: morph 8s ease-in-out infinite;
-    }
-  }
-
   .profile-card {
     margin-top: 20px;
     border-left: 5px solid var(--light-pink);
@@ -138,7 +126,22 @@
     font-weight: 700;
   }
 
-
+  .map-container {
+    margin-top: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(252, 108, 133, 0.1);
+    position: relative;
+    width: 50%;
+    
+    #map {
+      height: 100vh;
+      width: 100%;
+      z-index: 1;
+      position: relative;
+      background-color: #f8f9fa;
+    }
+  }
 }
 
 @keyframes morph {
@@ -156,5 +159,247 @@
   }
   100% {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+}
+
+// Custom popup styles
+:host ::ng-deep {
+  .custom-popup-container {
+    .leaflet-popup-content-wrapper {
+      padding: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .leaflet-popup-content {
+      margin: 0;
+      width: 350px !important;
+    }
+
+    .leaflet-popup-tip {
+      display: none;
+    }
+
+    .custom-popup {
+      .popup-header {
+        background: rgba(44, 62, 80, 0.8);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        h3 {
+          margin: 0;
+          font-size: 1.2rem;
+          font-weight: 600;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .role {
+          font-size: 0.9rem;
+          opacity: 0.9;
+        }
+      }
+
+      .popup-screenshot {
+        width: 100%;
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+        background: rgba(0, 0, 0, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .popup-content {
+        padding: 15px;
+        background: transparent;
+
+        p {
+          margin: 8px 0;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: #2c3e50;
+          font-size: 0.9rem;
+          text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+
+          i {
+            color: #2c3e50;
+            width: 16px;
+            text-shadow: none;
+          }
+        }
+      }
+
+      .popup-footer {
+        padding: 10px 15px;
+        background: rgba(248, 249, 250, 0.7);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+        .contact-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          background: rgba(44, 62, 80, 0.8);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          color: white;
+          text-decoration: none;
+          border-radius: 20px;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+          &:hover {
+            background: rgba(44, 62, 80, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          }
+
+          i {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(-45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+  100% {
+    transform: rotate(-45deg) translateY(0);
+  }
+}
+
+// Responsive styles
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    .hero-content {
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    .map-container {
+      width: 100%;
+      margin-top: 2rem;
+      
+      #map {
+        height: 50vh;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding: 1rem 0;
+
+    .hero-content {
+      padding: 0 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .profile-card {
+      padding: 20px;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+
+    .tech-stack {
+      .tech-item {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+  }
+
+  :host ::ng-deep {
+    .custom-popup-container {
+      .leaflet-popup-content {
+        width: 250px !important;
+      }
+
+      .custom-popup {
+        .popup-header {
+          padding: 12px;
+
+          h3 {
+            font-size: 1.1rem;
+          }
+        }
+
+        .popup-content {
+          padding: 12px;
+
+          p {
+            font-size: 0.85rem;
+          }
+        }
+
+        .popup-footer {
+          padding: 8px 12px;
+
+          .contact-btn {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-section {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .profile-card {
+      padding: 15px;
+    }
+
+    .tech-stack {
+      gap: 0.5rem;
+      
+      .tech-item {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+      }
+    }
   }
 }

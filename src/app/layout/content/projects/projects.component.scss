@@ -3,88 +3,88 @@
   min-height: 100vh;
 }
 
-.section-title {
+  .section-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 1.5rem;
   color: var(--primary-color);
   margin-bottom: 3rem;
-  text-align: center;
+    text-align: center;
   // text-transform: uppercase;
   letter-spacing: 2px;
   
-}
+  }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-}
+  }
 
-.project-card {
-  background: white;
+  .project-card {
+    background: white;
   border-radius: 10px;
-  overflow: hidden;
+    overflow: hidden;
   box-shadow: 0 4px 15px rgba(252, 108, 133, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  &:hover {
-    transform: translateY(-5px);
+    &:hover {
+      transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(252, 108, 133, 0.2);
-  }
+    }
 
-  .project-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-
-    img {
+    .project-image {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+      height: 200px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
 
       &:hover {
         transform: scale(1.05);
       }
+      }
     }
-  }
 
-  .project-content {
-    padding: 1.5rem;
+    .project-content {
+      padding: 1.5rem;
 
-    h3 {
+      h3 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-    }
+        font-size: 1.3rem;
+      }
 
-    p {
+      p {
       color: var(--text-color);
-      margin-bottom: 1rem;
+        margin-bottom: 1rem;
       line-height: 1.5;
     }
-  }
+      }
 
-  .project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     margin-bottom: 1rem;
 
-    span {
+        span {
       background: rgba(252, 108, 133, 0.1);
       color: var(--primary-color);
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
+          padding: 0.3rem 0.8rem;
+          border-radius: 15px;
       font-size: 0.9rem;
-    }
-  }
+        }
+      }
 
-  .project-links {
-    display: flex;
-    gap: 1rem;
+      .project-links {
+        display: flex;
+        gap: 1rem;
 
     .btn {
       flex: 1;
