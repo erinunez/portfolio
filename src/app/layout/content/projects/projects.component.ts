@@ -209,19 +209,27 @@ export class ProjectsComponent {
       category: 'Web',
       description: 'Tracking of employee attendance, leave and claim',
       longDescription: 'This website offers a comprehensive workforce management solution with distinct roles, including Super Admin, HR Admin, Supervisor, and Employee, each with tailored access levels. HR Admins can effectively track employee attendance, approve unusual attendance actions, manage staff activities, oversee leave and claim approvals, schedule holidays, send messages to all staff, and adjust company settings. Additionally, employees can conveniently clock in and out, apply for leaves, and submit claims.',
-      imageUrl: 'assets/projects/testinggg.png',
+      imageUrl: 'assets/projects/schr/SCHR_3.png',
       referenceImages: [
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/schr/SCHR_2.png',
+          description: 'Add employee'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/schr/SCHR_4.png',
+          description: 'Claim form for out of pocket'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
+          url: 'assets/projects/schr/SCHR_5.png',
+          description: 'Claim form for mileage'
+        },
+        {
+          url: 'assets/projects/schr/SCHR_6.png',
+          description: 'Claim form for bulk claim'
+        },
+        {
+          url: 'assets/projects/schr/SCHR_8.png',
+          description: 'Bulk claim review details'
         }
       ],
       technologies: ['Vue', 'Javascript', 'Bookstrap-Vue', 'SCSS', 'Axios', 'Vue Router', 'Vue I18n', 'Vuex'],
@@ -327,7 +335,7 @@ export class ProjectsComponent {
     {
       id: 7,
       title: 'Unified Control',
-      client: 'Resource Data Management Asia',
+      client: 'Wisma CIMB, Menara Public Bank, Woman and Child Hospital',
       category: 'Web',
       description: 'Building Management System',
       longDescription: 'This proprietary Building Management System (BMS) offers tailored services to various clients, providing unique perspectives for each client. It features 3D, 2D, and schematic views of components primarily focused on HVAC, lighting, and chiller systems. Clients can monitor the on/off status of each component through animated visuals, tables, or detailed views, as well as control components and track their performance statistics and alarms. Each component is organized by category and building level. Additionally, the system includes user management features that enable clients to easily add, update, or remove users and their roles, as well as view the user audit trail.',
@@ -389,7 +397,60 @@ export class ProjectsComponent {
       solutions: [
         'Research and develop related libraries',
       ],
-    }
+    },
+    {
+      id: 6,
+      title: 'Admin Portal & Unified Control',
+      client: 'MRANTI',
+      category: 'UI/UX',
+      description: 'A modern and intuitive e-commerce mobile app design focusing on user experience',
+      longDescription: 'A comprehensive UI/UX design project for an e-commerce mobile application, focusing on creating an intuitive and engaging shopping experience. The design incorporates modern UI trends, accessibility considerations, and user-centered design principles.',
+      imageUrl: 'assets/projects/uiux/ecommerce-main.png',
+      referenceImages: [
+        {
+          url: 'assets/projects/uiux/ecommerce-main.png',
+          description: 'Main app interface with featured products and categories'
+        },
+        {
+          url: 'assets/projects/uiux/ecommerce-cart.png',
+          description: 'Shopping cart with smooth animations and clear product details'
+        },
+        {
+          url: 'assets/projects/uiux/ecommerce-product.png',
+          description: 'Product detail page with image gallery and specifications'
+        },
+        {
+          url: 'assets/projects/uiux/ecommerce-checkout.png',
+          description: 'Streamlined checkout process with multiple payment options'
+        }
+      ],
+      technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing'],
+      githubUrl: 'https://www.figma.com/file/your-file-id',
+      liveUrl: 'https://www.figma.com/proto/your-prototype-id',
+      features: [
+        'Modern and clean interface design',
+        'Intuitive navigation system',
+        'Responsive product catalog',
+        'Smooth checkout process',
+        'User-friendly search functionality',
+        'Personalized recommendations',
+        'Dark/Light mode support',
+        'Accessibility features'
+      ],
+      challenges: [
+        'Creating a seamless shopping experience',
+        'Balancing aesthetics with functionality',
+        'Ensuring accessibility compliance',
+        'Optimizing for different screen sizes'
+      ],
+      solutions: [
+        'Conducted user research and created user personas',
+        'Implemented a consistent design system',
+        'Created interactive prototypes for user testing',
+        'Developed responsive components for various screen sizes',
+        'Incorporated accessibility guidelines throughout the design'
+      ],
+    },
   ];
 
   openProjectDetails(project: Project) {
