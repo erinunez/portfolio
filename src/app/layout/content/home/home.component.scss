@@ -9,7 +9,7 @@
   overflow: hidden;
   width: 100%;
   gap: 2rem;
-  // background-color: cyan;
+  background-color: var(--background-dark);
 
   .hero-content {
     flex: 1;
@@ -22,10 +22,10 @@
     font-size: 3.5rem;
     margin-bottom: 1rem;
     line-height: 1.2;
-    color: black;
+    color: var(--text-dark);
 
     .highlight {
-      color: var(--primary-pink);
+      color: var(--primary-color);
       position: relative;
       
       // &::after {
@@ -81,9 +81,9 @@
 
     .tech-item {
       padding: 0.5rem 1rem;
-      background: rgba(248, 131, 121, 0.1);
+      background: rgba(252, 108, 133, 0.1);
       border-radius: 20px;
-      color: var(--primary-pink);
+      color: var(--primary-color);
       font-size: 1rem;
       font-weight: 500;
     }
@@ -91,14 +91,25 @@
 
   .profile-card {
     margin-top: 20px;
-    border-left: 5px solid var(--light-pink);
+    border-left: 5px solid var(--primary-color);
     padding: 30px;
     max-width: 700px;
+    background: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(252, 108, 133, 0.1);
+    border: 1px solid rgba(252, 108, 133, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(252, 108, 133, 0.2);
+    }
   }
 
   .title {
     font-size: 48px;
     margin-bottom: 20px;
+    color: var(--text-dark);
   }
 
   .title .pink {
@@ -133,13 +144,14 @@
     box-shadow: 0 4px 15px rgba(252, 108, 133, 0.1);
     position: relative;
     width: 50%;
+    border: 1px solid rgba(252, 108, 133, 0.1);
     
     #map {
       height: 100vh;
       width: 100%;
       z-index: 1;
       position: relative;
-      background-color: #f8f9fa;
+      background-color: var(--background-light);
     }
   }
 }
@@ -169,11 +181,11 @@
       padding: 0;
       border-radius: 12px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.7);
+      background: var(--background-light);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(252, 108, 133, 0.1);
     }
 
     .leaflet-popup-content {
@@ -237,12 +249,12 @@
           display: flex;
           align-items: center;
           gap: 8px;
-          color: #2c3e50;
+          color: var(--text-dark);
           font-size: 0.9rem;
           text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
 
           i {
-            color: #2c3e50;
+            color: var(--text-dark);
             width: 16px;
             text-shadow: none;
           }
@@ -277,10 +289,6 @@
             background: rgba(44, 62, 80, 0.9);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          }
-
-          i {
-            font-size: 0.8rem;
           }
         }
       }
@@ -399,6 +407,98 @@
       .tech-item {
         font-size: 0.8rem;
         padding: 0.3rem 0.6rem;
+      }
+    }
+  }
+}
+
+// Dark theme specific styles
+:host-context(.dark-theme) {
+  .hero-section {
+    background-color: #1a1a1a;
+
+    .hero-title {
+      color: var(--text-light);
+    }
+
+    .hero-subtitle {
+      color: var(--text-light);
+    }
+
+    .hero-description {
+      color: var(--text-light);
+    }
+
+    .tech-stack {
+      .tech-item {
+        background: rgba(252, 108, 133, 0.2);
+      }
+    }
+
+    .profile-card {
+      background: rgba(45, 45, 45, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(252, 108, 133, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        box-shadow: 0 8px 25px rgba(252, 108, 133, 0.3);
+      }
+    }
+
+    .title {
+      color: var(--text-light);
+    }
+
+    .description {
+      color: var(--text-light);
+    }
+
+    .map-container {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(252, 108, 133, 0.2);
+      
+      #map {
+        background-color: rgba(45, 45, 45, 0.8);
+      }
+    }
+  }
+
+  // Custom popup styles for dark theme
+  :host ::ng-deep {
+    .custom-popup-container {
+      .leaflet-popup-content-wrapper {
+        background: rgba(45, 45, 45, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(252, 108, 133, 0.2);
+      }
+
+      .custom-popup {
+        .popup-header {
+          background: rgba(26, 26, 26, 0.95);
+          color: var(--text-light);
+        }
+
+        .popup-content {
+          p {
+            color: var(--text-light);
+          }
+        }
+
+        .popup-footer {
+          background: rgba(26, 26, 26, 0.95);
+          
+          .contact-btn {
+            background: rgba(252, 108, 133, 0.2);
+            color: var(--text-light);
+            
+            &:hover {
+              background: rgba(252, 108, 133, 0.3);
+            }
+          }
+        }
       }
     }
   }

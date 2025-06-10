@@ -188,6 +188,28 @@
       }
     }
   }
+
+  .theme-toggle {
+    margin-top: auto;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--primary-color);
+      color: var(--text-light);
+    }
+
+    i {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover i {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 // Add padding to main content to account for sidebar

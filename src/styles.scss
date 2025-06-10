@@ -10,6 +10,7 @@
   --text-light: #2c3e50;
   --text-dark: #2c3e50;
   --pixel-size: 4px;
+  --transition-speed: 0.3s;
 }
 
 * {
@@ -17,6 +18,10 @@
   padding: 0;
   box-sizing: border-box;
   image-rendering: pixelated;
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              box-shadow var(--transition-speed) ease;
 }
 
 body {
@@ -24,6 +29,7 @@ body {
   background-color: var(--background-dark);
   color: var(--text-dark);
   line-height: 1.6;
+  transition: background-color var(--transition-speed) ease;
   background-image: 
     radial-gradient(circle at 25px 25px, var(--secondary-color) 2%, transparent 0%),
     radial-gradient(circle at 75px 75px, var(--secondary-color) 2%, transparent 0%),
@@ -227,6 +233,87 @@ a {
   &:hover {
     transform: translateY(-4px);
     border-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(252, 108, 133, 0.2);
+  }
+}
+
+/* Dark theme specific styles */
+.dark-theme {
+  body {
+    background-color: #1a1a1a;
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(252, 108, 133, 0.1) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(252, 108, 133, 0.1) 2%, transparent 0%),
+      linear-gradient(45deg, rgba(45, 45, 45, 0.5) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(45, 45, 45, 0.5) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(45, 45, 45, 0.5) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(45, 45, 45, 0.5) 75%);
+  }
+
+  .container {
+    background-color: rgba(45, 45, 45, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .card {
+    background: rgba(45, 45, 45, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      background: rgba(26, 26, 26, 0.8);
+    }
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(252, 108, 133, 0.3);
+    }
+  }
+
+  .section {
+    &::before {
+      background: var(--primary-color);
+      opacity: 0.8;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    text-shadow: 
+      var(--pixel-size) 0 0 var(--background-dark),
+      calc(var(--pixel-size) * -1) 0 0 var(--background-dark),
+      0 var(--pixel-size) 0 var(--background-dark),
+      0 calc(var(--pixel-size) * -1) 0 var(--background-dark);
+  }
+
+  a {
+    color: var(--primary-color);
+    
+    &:hover {
+      color: var(--accent-color);
+    }
+
+    &::after {
+      background: var(--primary-color);
+    }
+  }
+
+  .btn {
+    background: var(--primary-color);
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(252, 108, 133, 0.2);
+
+    &::before {
+      background: var(--background-dark);
+    }
+
+    &:hover {
+      background: var(--accent-color);
+      box-shadow: 0 6px 20px rgba(252, 108, 133, 0.3);
+    }
   }
 }
 

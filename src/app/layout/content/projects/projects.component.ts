@@ -403,8 +403,8 @@ export class ProjectsComponent {
       title: 'Admin Portal & Unified Control',
       client: 'MRANTI',
       category: 'UI/UX',
-      description: 'A modern and intuitive e-commerce mobile app design focusing on user experience',
-      longDescription: 'A comprehensive UI/UX design project for an e-commerce mobile application, focusing on creating an intuitive and engaging shopping experience. The design incorporates modern UI trends, accessibility considerations, and user-centered design principles.',
+      description: 'A design for IoT Website',
+      longDescription: 'A comprehensive UI/UX design project for an IoT website system, focusing on creating an monitoring and managing of devices.',
       imageUrl: 'assets/projects/uiux/ecommerce-main.png',
       referenceImages: [
         {
@@ -425,30 +425,25 @@ export class ProjectsComponent {
         }
       ],
       technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing'],
-      githubUrl: 'https://www.figma.com/file/your-file-id',
-      liveUrl: 'https://www.figma.com/proto/your-prototype-id',
+      githubUrl: '',
+      liveUrl: '',
       features: [
-        'Modern and clean interface design',
-        'Intuitive navigation system',
-        'Responsive product catalog',
-        'Smooth checkout process',
-        'User-friendly search functionality',
-        'Personalized recommendations',
-        'Dark/Light mode support',
-        'Accessibility features'
+        'Dashboard',
+        'User Access Management',
+        'User Log Management',
+        'Alarm Handler',
+        'Manual Data Entry',
+        'Widget Management',
+        'Report Generation',
       ],
       challenges: [
-        'Creating a seamless shopping experience',
-        'Balancing aesthetics with functionality',
-        'Ensuring accessibility compliance',
-        'Optimizing for different screen sizes'
+        'Handling UIUX for IoT System',
+        'First time working with IoT System and UIUX Design',
       ],
       solutions: [
-        'Conducted user research and created user personas',
-        'Implemented a consistent design system',
-        'Created interactive prototypes for user testing',
-        'Developed responsive components for various screen sizes',
-        'Incorporated accessibility guidelines throughout the design'
+        'Managed to understand the requirements and the flow of the system',
+        'Getting helped from leader to understand the system and requirements',
+        'Managed to get used to tools and libraries of figma',
       ],
     },
   ];

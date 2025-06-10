@@ -1,0 +1,33 @@
+.about-section {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+}
+
+:host-context(.dark-theme) {
+  .about-section {
+    background-color: #1a1a1a;
+  }
+
+  .about-card {
+    background: rgba(45, 45, 45, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(252, 108, 133, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      box-shadow: 0 8px 25px rgba(252, 108, 133, 0.3);
+    }
+
+    .about-content {
+      background: rgba(45, 45, 45, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      p {
+        color: var(--text-light);
+      }
+    }
+  }
+} 

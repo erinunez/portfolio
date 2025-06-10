@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-topbar',
@@ -15,8 +16,9 @@ export class TopbarComponent implements OnInit {
   isProjects = false;
   isPersonal = false;
   isContacts = false;
+  isDarkMode = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private themeService: ThemeService) {}
 
   ngOnInit(): void {
     // Set initial active state based on current route
@@ -28,10 +30,18 @@ export class TopbarComponent implements OnInit {
     ).subscribe((event: any) => {
       this.setActiveState(event.url);
     });
+
+    this.themeService.isDarkMode$.subscribe(isDark => {
+      this.isDarkMode = isDark;
+    });
   }
 
   toggleSidebar() {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 
   navigateTo(route: string): void {
