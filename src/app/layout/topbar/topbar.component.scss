@@ -279,5 +279,51 @@
   background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(45, 45, 45, 0.95));
   box-shadow: 4px 0 15px rgba(252, 108, 133, 0.15);
   border-right: 1.5px solid rgba(252, 108, 133, 0.15);
+
+  .topbar-logo {
+    color: var(--primary-color);
+    text-shadow: 0 2px 8px rgba(252, 108, 133, 0.15);
+    background: transparent;
+    &::before {
+      background: transparent;
+    }
+  }
+
+  .layout-topbar-buttons {
+    .topbar-buttons {
+      background: transparent;
+      color: var(--primary-color);
+
+      &::before {
+        background: rgba(45, 45, 45, 0.95);
+      }
+
+      &:hover, &.active {
+        background: var(--primary-color);
+        color: #1a1a1a;
+        box-shadow: 0 4px 15px rgba(252, 108, 133, 0.25);
+      }
+    }
+  }
+
+  .theme-toggle {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+
+    &:hover {
+      background: var(--primary-color);
+      color: #1a1a1a;
+    }
+  }
+
+  .toggle-button {
+    background: var(--primary-color);
+    color: #1a1a1a;
+    &:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+  }
 }
   

@@ -25,9 +25,13 @@ export class ContactsComponent {
   constructor() {
     // Initialize EmailJS with your public key
     emailjs.init("tn0v7Uv_xltXi7siQ"); // Replace with your actual public key
+
+    
   }
 
   private showToastMessage(message: string, type: 'success' | 'error') {
+    console.log('nasuk');
+    
     this.toastMessage = message;
     this.toastType = type;
     this.showToast = true;
