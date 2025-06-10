@@ -28,7 +28,8 @@
             </button>
             <button class="topbar-buttons theme-toggle" (click)="toggleTheme()">
                 <i class="pi" [class.pi-moon]="!isDarkMode" [class.pi-sun]="isDarkMode"></i>
-                <span class="button-text">Theme</span>
+                <img [src]="isDarkMode ? 'assets/icon/full-moon.png' : 'assets/icon/cloudy.png'" style="height: 20px; width: 20px;" alt="home">
+                <span class="button-text">theme</span>
             </button>
         </div>
     </div>
