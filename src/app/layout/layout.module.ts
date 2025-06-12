@@ -12,6 +12,7 @@ import { ProjectsComponent } from './content/projects/projects.component';
 import { AboutMeComponent } from './content/about-me/about-me.component';
 import { ContactsComponent } from './content/contacts/contacts.component';
 import { ToastComponent } from '../shared/components/toast/toast.component';
+import { ProjectDetailsComponent } from './content/projects/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ToastComponent } from '../shared/components/toast/toast.component';
     HomeComponent,
     ProjectsComponent,
     AboutMeComponent,
-    ContactsComponent
+    ContactsComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

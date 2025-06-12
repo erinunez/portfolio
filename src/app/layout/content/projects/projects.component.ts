@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
 
 interface Project {
   id: number;
@@ -27,6 +28,7 @@ interface Project {
   styleUrl: './projects.component.scss',
 })
 export class ProjectsComponent {
+  @ViewChild(ProjectDetailsComponent) projectDetails!: ProjectDetailsComponent;
   showModal = false;
   selectedProject: Project | null = null;
 
@@ -450,18 +452,26 @@ export class ProjectsComponent {
 
   openProjectDetails(project: Project) {
     this.selectedProject = project;
-    this.showModal = true;
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    this.projectDetails.openNav();
+    // this.showModal = true;
+
+    // document.body.style.overflow = 'hidden'; // Prevent background scrolling
   }
 
   closeProjectDetails() {
     this.showModal = false;
     this.selectedProject = null;
+    this.projectDetails.closeNav();
     document.body.style.overflow = ''; // Restore scrolling
   }
 
   openImageModal(imageUrl: string) {
     // Create a new window/tab with the image
     window.open(imageUrl, '_blank');
+  }
+
+  openNav() {
+    
+    this.projectDetails.openNav();
   }
 }
