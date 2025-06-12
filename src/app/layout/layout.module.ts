@@ -14,6 +14,7 @@ import { ContactsComponent } from './content/contacts/contacts.component';
 import { ToastComponent } from '../shared/components/toast/toast.component';
 import { ProjectDetailsComponent } from './content/projects/project-details/project-details.component';
 
+
 @NgModule({
   declarations: [
     LayoutComponent,

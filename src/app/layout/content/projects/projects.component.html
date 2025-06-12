@@ -13,96 +13,12 @@
           <span *ngFor="let tech of project.technologies">{{ tech }}</span>
         </div>
         <div class="project-links">
-          <button class="btn btn-small" (click)="openProjectDetails(project)">View Details</button>
+          <!-- <button class="btn btn-small" (click)="openProjectDetails(project)">View Details</button> -->
+          <button class="btn btn-small" (click)="goToPage(project)">View Details</button>
+     
           <!-- <a [href]="project.githubUrl" target="_blank" class="btn btn-small btn-outline">Source Code</a> -->
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Project Details Modal -->
-  <div class="modal-overlay" *ngIf="showModal" (click)="closeProjectDetails()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <button class="close-btn" (click)="closeProjectDetails()">
-        <i class="fas fa-times"></i>
-      </button>
-
-      <div class="modal-body" *ngIf="selectedProject">
-        <div class="modal-header">
-          <h2>{{ selectedProject.title }} ({{ selectedProject.category }})</h2>
-          <!-- <div class="modal-links">
-            <a [href]="selectedProject.liveUrl" target="_blank" class="btn btn-small">
-              <i class="fas fa-external-link-alt"></i> Live Demo
-            </a>
-            <a [href]="selectedProject.githubUrl" target="_blank" class="btn btn-small btn-outline">
-              <i class="fab fa-github"></i> Source Code
-            </a>
-          </div> -->
-        </div>
-
-        <div class="modal-image">
-          <div class="screen">
-            <img [src]="selectedProject.imageUrl" [alt]="selectedProject.title">
-          </div>
-          <div class="camera"></div>
-        </div>
-
-        <div class="modal-description">
-          <p>{{ selectedProject.longDescription }}</p>
-        </div>
-
-        <div class="reference-gallery" *ngIf="selectedProject.referenceImages.length > 0">
-          <h3>Project Screenshots</h3>
-          <div class="gallery-grid">
-            <div class="gallery-item" *ngFor="let image of selectedProject.referenceImages">
-              <img [src]="image.url" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image.url)">
-              <div class="image-description">{{ image.description }}</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-tech">
-          <h3>Client</h3>
-          <div>
-            <span >{{ selectedProject.client }}</span>
-          </div>
-        </div>
-
-        <div class="modal-tech">
-          <h3>Technologies Used</h3>
-          <div class="tech-tags">
-            <span *ngFor="let tech of selectedProject.technologies">{{ tech }}</span>
-          </div>
-        </div>
-
-        <div class="modal-features">
-          <h3>Key Features</h3>
-          <ul>
-            <li *ngFor="let feature of selectedProject.features">{{ feature }}</li>
-          </ul>
-        </div>
-
-        <div class="modal-challenges">
-          <h3>Challenges & Solutions</h3>
-          <div class="challenge-solution">
-            <div class="challenges">
-              <h4>Challenges</h4>
-              <ul>
-                <li *ngFor="let challenge of selectedProject.challenges">{{ challenge }}</li>
-              </ul>
-            </div>
-            <div class="solutions">
-              <h4>Solutions</h4>
-              <ul>
-                <li *ngFor="let solution of selectedProject.solutions">{{ solution }}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
-
-
-<app-project-details id="sidebarNav" [selectedProject]="selectedProject"></app-project-details>

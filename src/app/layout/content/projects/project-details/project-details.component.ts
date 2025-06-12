@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-details',
@@ -7,35 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './project-details.component.scss'
 })
 export class ProjectDetailsComponent implements OnInit {
-  @Input() id: string = 'sidebarNav';
-  @Input() selectedProject: any;
-
-  isOpen = false;
+  selectedProject:any
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    // Initialize the drawer in closed state
-    const drawer = document.getElementById(this.id);
-    if (drawer) {
-      drawer.style.width = '0';
-    }
-    console.log(this.selectedProject);
-    
+    const getData:any = localStorage.getItem('project')
+    this.selectedProject = JSON.parse(getData)
   }
 
-  openNav() {
-    this.isOpen = true;
-    const drawer = document.getElementById(this.id);
-    if (drawer) {
-      drawer.style.width = '850px';
-    }
-  }
-
-  closeNav() {
-    this.isOpen = false;
-    const drawer = document.getElementById(this.id);
-    if (drawer) {
-      drawer.style.width = '0';
-    }
+  backtoProjects(){
+    this.selectedProject = null;
+    localStorage.removeItem('project');
+    this.router.navigate(['/projects']);
   }
 
   openImageModal(imageUrl: string) {

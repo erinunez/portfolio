@@ -78,21 +78,20 @@ export class AboutMeComponent {
       title: 'Frontend',
       skills: [
         { name: 'HTML5', rating: 4 },
-        { name: 'JavaScript', rating: 4 },
         { name: 'CSS3', rating: 4 },
         { name: 'SCSS/SASS', rating: 3 },
+        { name: 'JavaScript', rating: 4 },
         { name: 'TypeScript', rating: 3 },
         { name: 'Angular', rating: 3 },
         { name: 'Vue', rating: 3 },
         { name: '.NET', rating: 2 },
-        { name: 'C#', rating: 2 },
       ]
     },
     {
       title: 'Backend',
       skills: [
-        { name: 'RESTful APIs', rating: 4 },
         { name: 'Node.js', rating: 0.5 },
+        { name: 'RESTful APIs', rating: 4 },
       ]
     },
     {
@@ -115,7 +114,24 @@ export class AboutMeComponent {
         { name: 'Visual Studio Code', rating: 5 },
         { name: 'Git', rating: 4.5 },
         { name: 'Postman', rating: 3 },
-        { name: 'Blender', rating: 3 },
+      ]
+    },
+    {
+      title: 'CSS Framework and Libraries',
+      skills: [
+        { name: 'Tailwind CSS', rating: 3 },
+        { name: 'Bootstrap', rating: 4 },
+        { name: 'PrimeNG', rating: 4.5 },
+        // { name: 'Figma', rating: 3 },
+        { name: 'Nebular', rating: 2 },
+        { name: 'Bootstrap Vue', rating: 4 },
+      ]
+    },
+    {
+      title: 'Creative Tools',
+      skills: [
+        { name: 'Blender', rating: 0.5 },
+        { name: 'Unity', rating: 1 },
       ]
     },
   ];

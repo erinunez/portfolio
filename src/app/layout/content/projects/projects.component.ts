@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { Router } from '@angular/router';
 
 interface Project {
   id: number;
@@ -161,7 +162,7 @@ export class ProjectsComponent {
     //   ],
     // },
     {
-      id: 4,
+      id: 2,
       title: 'Vendor KPI System',
       client: 'Johor Corporation',
       category: 'Web',
@@ -205,7 +206,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      id: 5,
+      id: 3,
       title: 'Synapse Core',
       client: 'Synapse Innovation Sdn Bhd',
       category: 'Web',
@@ -255,7 +256,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      id: 6,
+      id: 4,
       title: 'Dronos',
       client: 'Aerodyne Group',
       category: 'Web',
@@ -294,7 +295,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      id: 7,
+      id: 5,
       title: 'Davista Lighting',
       client: 'Davex Engineering',
       category: 'Web',
@@ -335,7 +336,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      id: 7,
+      id: 6,
       title: 'Unified Control',
       client: 'Wisma CIMB, Menara Public Bank, Woman and Child Hospital',
       category: 'Web',
@@ -401,7 +402,7 @@ export class ProjectsComponent {
       ],
     },
     {
-      id: 6,
+      id: 7,
       title: 'Admin Portal & Unified Control',
       client: 'MRANTI',
       category: 'UI/UX',
@@ -426,7 +427,7 @@ export class ProjectsComponent {
           description: 'Streamlined checkout process with multiple payment options'
         }
       ],
-      technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing'],
+      technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing', 'Angular', 'Typescript', 'REST APIs', 'Prime NG', 'Tailwind CSS'],
       githubUrl: '',
       liveUrl: '',
       features: [
@@ -449,29 +450,11 @@ export class ProjectsComponent {
       ],
     },
   ];
-
-  openProjectDetails(project: Project) {
+  constructor(private router: Router) {}
+  goToPage(project: Project) {
     this.selectedProject = project;
-    this.projectDetails.openNav();
-    // this.showModal = true;
-
-    // document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  }
-
-  closeProjectDetails() {
-    this.showModal = false;
-    this.selectedProject = null;
-    this.projectDetails.closeNav();
-    document.body.style.overflow = ''; // Restore scrolling
-  }
-
-  openImageModal(imageUrl: string) {
-    // Create a new window/tab with the image
-    window.open(imageUrl, '_blank');
-  }
-
-  openNav() {
-    
-    this.projectDetails.openNav();
+    const tempData:any = JSON.stringify(this.selectedProject)
+    localStorage.setItem('project', tempData)
+    this.router.navigate(['/projects-details']);
   }
 }
