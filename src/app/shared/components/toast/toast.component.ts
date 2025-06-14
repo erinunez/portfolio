@@ -1,10 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-toast',
+  imports: [CommonModule],
   standalone: true,
   template: `
-    <div class="toast" [class.success]="type === 'success'" [class.error]="type === 'error'" [class.show]="show">
+    <div *ngIf="show" class="toast" [class.success]="type === 'success'" [class.error]="type === 'error'">
       <div class="toast-content">
         <i class="fas" [class.fa-check-circle]="type === 'success'" [class.fa-exclamation-circle]="type === 'error'"></i>
         <div class="message">{{ message }}</div>
@@ -19,57 +21,49 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       right: 20px;
       padding: 15px 20px;
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.8);
+      background: var(--background-light);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 4px 15px rgba(252, 108, 133, 0.2);
       display: flex;
       flex-direction: column;
       min-width: 300px;
-      transform: translateX(120%);
-      transition: transform 0.3s ease;
-      z-index: 1000;
+      z-index: 99999;
       border: 1px solid rgba(252, 108, 133, 0.2);
+    }
 
-      &.show {
-        transform: translateX(0);
-      }
+    .toast.success {
+      border-left: 4px solid rgba(252, 108, 133, 0.8);
+    }
+    .toast.success .toast-content i {
+      color: #fc6c85;
+    }
+    .toast.success .progress-bar {
+      background: rgba(252, 108, 133, 0.8);
+    }
 
-      &.success {
-        border-left: 4px solid rgba(252, 108, 133, 0.8);
-        .toast-content i {
-          color: #fc6c85;
-        }
-        .progress-bar {
-          background: rgba(252, 108, 133, 0.8);
-        }
-      }
-
-      &.error {
-        border-left: 4px solid rgba(252, 108, 133, 0.8);
-        .toast-content i {
-          color: #fc6c85;
-        }
-        .progress-bar {
-          background: rgba(252, 108, 133, 0.8);
-        }
-      }
+    .toast.error {
+      border-left: 4px solid rgba(252, 108, 133, 0.8);
+    }
+    .toast.error .toast-content i {
+      color: #fc6c85;
+    }
+    .toast.error .progress-bar {
+      background: rgba(252, 108, 133, 0.8);
     }
 
     .toast-content {
       display: flex;
       align-items: center;
       gap: 12px;
-
-      i {
-        font-size: 1.2rem;
-      }
-
-      .message {
-        color: #333;
-        font-size: 0.95rem;
-        font-weight: 500;
-      }
+    }
+    .toast-content i {
+      font-size: 1.2rem;
+    }
+    .toast-content .message {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
     .progress-bar {
@@ -90,11 +84,34 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
         width: 0%;
       }
     }
+
+    :host-context(.dark-theme) {
+      .toast {
+        top: -30px;
+        right: -160px;
+        background: rgba(45, 45, 45, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(252, 108, 133, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .toast-content .message {
+        color: var(--text-light);
+      }
+    }
   `]
 })
-export class ToastComponent {
+export class ToastComponent implements OnChanges {
   @Input() message: string = '';
   @Input() type: 'success' | 'error' = 'success';
   @Input() show: boolean = false;
   @Output() close = new EventEmitter<void>();
+
+  ngOnChanges(changes: SimpleChanges) {
+    // if (changes['show'] && changes['show'].currentValue) {
+    //   setTimeout(() => {
+    //     this.close.emit();
+    //   }, 5000);
+    // }
+  }
 } 

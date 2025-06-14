@@ -3,13 +3,16 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  min-height: calc(100vh - 80px);
+  // min-height: calc(100vh - 80px);
   padding: 2rem;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
   gap: 2rem;
   background-color: var(--background-dark);
+  height: calc(100vh - 120px);
+  border-radius: 20px;
+  overflow: auto;
 
   .hero-content {
     flex: 1;

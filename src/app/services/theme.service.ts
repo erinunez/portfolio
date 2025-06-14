@@ -10,6 +10,8 @@ export class ThemeService {
 
   constructor() {
     // Check for saved theme preference
+    localStorage.setItem('theme', 'light'); //make it only light mode
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       this.isDarkMode.next(savedTheme === 'dark');

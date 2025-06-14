@@ -3,8 +3,11 @@
         <i class="pi" [class.pi-angle-right]="isCollapsed" [class.pi-angle-left]="!isCollapsed"></i>
     </button>
     <div class="topbar-content">
-        <div class="topbar-logo">
+        <div class="topbar-logo" *ngIf="!isCollapsed">
             nzaz
+        </div>
+        <div class="topbar-logo" *ngIf="isCollapsed">
+            za
         </div>
         <div class="layout-topbar-buttons">
             <button class="topbar-buttons" [ngClass]="{'active': isHome}" (click)="navigateTo('home')">
@@ -26,11 +29,11 @@
                 <span class="button-icon"><img src="assets/icon/photo-book.png" style="height: 20px; width: 20px;" alt="home"></span>
                 <span class="button-text">contacts</span>
             </button>
-            <button class="topbar-buttons theme-toggle" (click)="toggleTheme()">
+            <!-- <button class="topbar-buttons theme-toggle" (click)="toggleTheme()">
                 <i class="pi" [class.pi-moon]="!isDarkMode" [class.pi-sun]="isDarkMode"></i>
                 <img [src]="isDarkMode ? 'assets/icon/full-moon.png' : 'assets/icon/cloudy.png'" style="height: 20px; width: 20px;" alt="home">
                 <span class="button-text">theme</span>
-            </button>
+            </button> -->
         </div>
     </div>
 </div>

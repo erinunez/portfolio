@@ -37,7 +37,7 @@ export class ProjectsComponent {
     {
       id: 1,
       title: 'Portfolio Website',
-      description: 'A modern portfolio website built with Angular',
+      description: 'A portfolio website built with Angular with full of heart. ',
       client: 'Personal',
       category: 'Web',
       longDescription:
