@@ -31,8 +31,9 @@ body {
   line-height: 1.6;
   background-image: url("assets/images/background-portfolio.jpeg");
   background-repeat: no-repeat;
-  // background-size: 100vw 100vh;
+  background-size: 100vw 100vh;
   transition: background-color var(--transition-speed) ease;
+  cursor: url('assets/icon/oth800.cur'), auto;
   // background-image: 
   //   radial-gradient(circle at 25px 25px, var(--secondary-color) 2%, transparent 0%),
   //   radial-gradient(circle at 75px 75px, var(--secondary-color) 2%, transparent 0%),

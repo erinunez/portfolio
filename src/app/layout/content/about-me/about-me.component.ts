@@ -25,6 +25,11 @@ interface PersonalSkill {
 export class AboutMeComponent {
   Math = Math; // Add Math to the component for template access
 
+  selectedTab: 'about' | 'skills' | 'cert' = 'about';
+  setTab(tab: 'about' | 'skills' | 'cert') {
+    this.selectedTab = tab;
+  }
+
   personalSkills: PersonalSkill[] = [
     {
       name: 'Performance Under Pressure',

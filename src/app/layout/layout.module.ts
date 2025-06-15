@@ -25,7 +25,7 @@ import { ProjectDetailsComponent } from './content/projects/project-details/proj
     ProjectsComponent,
     AboutMeComponent,
     ContactsComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
   ],
   imports: [
     BrowserModule,

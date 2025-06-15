@@ -15,8 +15,9 @@
     font-size: 1.5rem;
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 3rem;
+    // margin-bottom: 3rem;
     position: relative;
+    margin-left: 60%; 
 
     &::after {
       content: '';
@@ -243,14 +244,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      // margin-bottom: 1.5rem;
     }
 
     .personal-skill-card {
       background: var(--background-light);
       border-radius: 10px;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      // margin-bottom: 1.5rem;
       box-shadow: 0 4px 15px rgba(252, 108, 133, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid rgba(252, 108, 133, 0.1);
@@ -327,6 +328,31 @@
 
     p {
       color: var(--text-light);
+    }
+  }
+}
+
+.about-tabs {
+  display: flex;
+  gap: 1rem;
+  // margin-bottom: 2rem;
+  justify-content: end;
+
+  button {
+    background: none;
+    border: none;
+    padding: 1rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+    font-family: 'Press Start 2P', cursive;
+
+    &.active {
+      border-bottom: 2px solid var(--primary-color);
+      color: var(--accent-color);
+      font-weight: bold;
     }
   }
 }
