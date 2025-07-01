@@ -68,12 +68,12 @@ export class ContactsComponent {
 
   downloadResume() {
     try {
-      const resumePath = 'assets/resume/ZaireenAkhzar_Resume 25.0.0.pdf';
+      const resumePath = 'assets/resume/ZaireenAkhzar_Resume 25.0.1.pdf';
       
       // Create a link element
       const link = document.createElement('a');
       link.href = resumePath;
-      link.download = 'ZaireenAkhzar_Resume.pdf'; // Name of the downloaded file
+      link.download = 'Zaireen_Akhzar_Resume.pdf'; // Name of the downloaded file
       
       // Append to body, click, and remove
       document.body.appendChild(link);
