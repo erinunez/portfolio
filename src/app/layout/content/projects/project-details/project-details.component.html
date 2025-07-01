@@ -31,19 +31,21 @@
     <div class="reference-gallery" *ngIf="selectedProject.referenceImages.length > 0">
       <h3>Project Screenshots</h3>
       <div class="gallery-grid">
-        <div class="gallery-item" *ngFor="let image of selectedProject.referenceImages">
-          <img [src]="image.url" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image.url)">
-          <div class="image-description">{{ image.description }}</div>
+        <div class="gallery-row" *ngFor="let row of getGalleryRows()">
+          <div class="gallery-item" *ngFor="let image of row">
+            <img [src]="image.url" [alt]="selectedProject.title + ' screenshot'" (click)="openImageModal(image.url)">
+            <div class="image-description">{{ image.description }}</div>
+          </div>
         </div>
       </div>
     </div>
   
-    <div class="modal-tech">
+    <!-- <div class="modal-tech">
       <h3>Client</h3>
       <div>
         <span >{{ selectedProject.client }}</span>
       </div>
-    </div>
+    </div> -->
   
     <div class="modal-tech">
       <h3>Technologies Used</h3>

@@ -90,7 +90,7 @@
 
   .modal-image {
     width: 100%;
-    height: 800px;
+    height: 600px;
     position: relative;
     margin: 2rem auto;
     border-radius: 10px;
@@ -145,41 +145,50 @@
         border-radius: 3px;
       }
 
-      .gallery-item {
-        flex: 0 0 300px;
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: transform 0.3s ease;
+      .gallery-row {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        min-width: 400px;
 
-        &:hover {
-          transform: scale(1.05);
+        .gallery-item {
+          width: 400px;
+          height: 280px;
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+
+            .image-description {
+              opacity: 1;
+            }
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
 
           .image-description {
-            opacity: 1;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
           }
-        }
-
-        img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-          display: block;
-        }
-
-        .image-description {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: rgba(0, 0, 0, 0.8);
-          color: white;
-          padding: 0.8rem;
-          font-size: 0.9rem;
-          opacity: 0;
-          transition: opacity 0.3s ease;
         }
       }
     }

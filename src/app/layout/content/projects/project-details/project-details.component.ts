@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,12 +8,22 @@ import { Router } from '@angular/router';
   styleUrl: './project-details.component.scss'
 })
 export class ProjectDetailsComponent implements OnInit {
-  selectedProject:any
+  @Input() selectedProject: any;
   constructor(private router: Router) {}
 
   ngOnInit() {
     const getData:any = localStorage.getItem('project')
     this.selectedProject = JSON.parse(getData)
+  }
+
+  getGalleryRows() {
+    if (!this.selectedProject?.referenceImages) return [];
+    
+    const rows = [];
+    for (let i = 0; i < this.selectedProject.referenceImages.length; i += 2) {
+      rows.push(this.selectedProject.referenceImages.slice(i, i + 2));
+    }
+    return rows;
   }
 
   backtoProjects(){

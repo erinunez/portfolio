@@ -95,7 +95,7 @@ export class AboutMeComponent {
     {
       title: 'Backend',
       skills: [
-        { name: 'Node.js', rating: 0.5 },
+        // { name: 'Node.js', rating: 0.5 },
         { name: 'RESTful APIs', rating: 4 },
       ]
     },

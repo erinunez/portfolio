@@ -42,19 +42,19 @@ export class ProjectsComponent {
       category: 'Web',
       longDescription:
         'A responsive portfolio website showcasing my work and skills, built with Angular and featuring a beautiful watermelon pink theme.',
-      imageUrl: 'assets/images/portfolio.jpg',
+      imageUrl: 'assets/projects/portfolio/portfolio_home.png',
       referenceImages: [
         {
-          url: 'assets/images/portfolio.jpg',
-          description: 'Home page with modern design and smooth animations'
+          url: 'assets/projects/portfolio/portfolio_skill.png',
+          description: 'Rating skills page'
         },
         {
-          url: 'assets/images/portfolio-2.jpg',
-          description: 'Projects section showcasing various works'
+          url: 'assets/projects/portfolio/portfolio_contacts.png',
+          description: 'Contacts page'
         },
         {
-          url: 'assets/images/portfolio-3.jpg',
-          description: 'Contact form with validation and interactive elements'
+          url: 'assets/projects/portfolio/portfolio_aboutme.png',
+          description: 'Description of the owner'
         }
       ],
       technologies: ['Angular', 'TypeScript', 'SCSS', 'HTML5'],
@@ -168,27 +168,60 @@ export class ProjectsComponent {
       category: 'Web',
       description: 'Evaluation of Key Performance Indicators (KPIs) for vendors',
       longDescription: 'This website empowers vendors to register seamlessly and enables robust evaluation of their Key Performance Indicators (KPIs) to drive success and growth.',
-      imageUrl: 'assets/projects/testinggg.png',
+      imageUrl: 'assets/projects/jcorp/evaluation.png',
       referenceImages: [
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/jcorp/suppliers.png',
+          description: 'This module grants admin access to create, update, and view supplier details. Suppliers cannot be deleted, but the admin can toggle their status between active and inactive'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/jcorp/criteria2.png',
+          description: 'This module enables admin to create, update, delete, and view criteria to be included in the evaluation form.'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
-        }
+          url: 'assets/projects/jcorp/projects(manager).png',
+          description: 'Manager can oversee project management by adding, viewing, and updating projects, as well as accessing reports. They also have the authority to approve or reject projects that have been evaluated by the evaluators.'
+        },
+        {
+          url: 'assets/projects/jcorp/evaluation.png',
+          description: 'A chosen project will undergo evaluation by the evaluators, using a list of criteria established by the admin. Each criterion must be rated on a scale given'
+        },
+        {
+          url: 'assets/projects/jcorp/criteria.png',
+          description: 'Example of evaluation form for evaluators to assess the selected vendor.'
+        },
+        {
+          url: 'assets/projects/jcorp/evaluator_projects.png',
+          description: 'Evaluators can view all projects assigned to them, and the action buttons will change according to the status column—whether it is rejected, approved, or evaluated.'
+        },
+        {
+          url: 'assets/projects/jcorp/performance_manager.png',
+          description: 'List of projects to monitor the status evaluation and read the details.'
+        },
+        {
+          url: 'assets/projects/jcorp/performance.png',
+          description: 'On Manager view, they can view and export reports for projects that have been successfully evaluated.'
+        },
+        {
+          url: 'assets/projects/jcorp/projects_involvement.png',
+          description: 'Manager is reponsible to track the staff members responsible for evaluating the projects.'
+        },
+        {
+          url: 'assets/projects/jcorp/projects.png',
+          description: 'Manager can only view and download the report once the project has been successfully evaluated. '
+        },
+        {
+          url: 'assets/projects/jcorp/projects2.png',
+          description: 'Manager can view all the projects including previous projects by filtering the dates'
+        },
+
       ],
       technologies: ['C#', '.NET', 'Bookstrap'],
       githubUrl: '',
       liveUrl: '',
       features: [
         'Vendor registration',
-        'KPI creation',
+        'KPI Criteria Creation',
         'KPI submission',
         'KPI evaluation',
         'Project creation',
@@ -257,27 +290,39 @@ export class ProjectsComponent {
     },
     {
       id: 4,
-      title: 'Dronos',
+      title: 'Dronos OS',
       client: 'Aerodyne Group',
       category: 'Web',
       description: 'Drone management system',
-      longDescription: 'A complete drone-based project management solution that offers AI-powered, customizable dashboards. It features streamlined workflows with defined roles and permissions, support ticketing, custom report generation, and label management.',
-      imageUrl: 'assets/projects/testinggg.png',
+      longDescription: 'Drone OS offers an all-in-one solution for managing drone-based projects, designed to simplify workflows and boost productivity. It includes advanced features such as interactive map navigation, intelligent clustering, AI-driven defect detection with image annotation, and precision editing tools. Users can also benefit from customizable dashboards, organized image galleries, and comprehensive collaboration tools like role-based permissions, integrated support ticketing, and tailored report generation.',
+      imageUrl: 'assets/projects/dronos/User Role and Permission.png',
       referenceImages: [
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/dronos/User Role and Permission.png',
+          description: 'In User Management, roles are created by the Super Admin, each with its own specific permissions. The Super Admin can assign these roles to existing users or invite new users. The User Management section includes role names, total users, a list of users, and detailed user information. User details can be edited or users can be deleted from their specific roles as needed.'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/dronos/Label Management.png',
+          description: 'Label Management allows users to customize data set labels for smart filtering on the user dashboard, effectively organizing collections of labels. This feature streamlines asset management by enabling efficient filtering of assets.'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
+          url: 'assets/projects/dronos/Personalized Dashboard.png',
+          description: `The dashboard displays overall statistics and project growth. Users have the freedom to personalize their dashboards according to their preferences, allowing them to add, remove, and resize cards within the layout. As a result, each user's dashboard can have a unique appearance tailored to their needs.`
+        },
+        {
+          url: 'assets/projects/dronos/Project Management.png',
+          description: `Take control of your drone-based projects with Drone OS’s intuitive Globe view. This interactive, map-based interface offers a global perspective, allowing you to create, update, and delete projects with ease. Seamlessly navigate between project sites, access data summaries, identify clustering trends, and streamline your workflows—all in one powerful, visual platform.`
+        },
+        {
+          url: 'assets/projects/dronos/Supporting Ticket.png',
+          description: `The Support Ticket system is used for feature requests and bug reports. It allows users to monitor and manage issues by creating tickets and tracking their progress until resolution. The bug report feature enables users to submit operational issues directly, streamlining the reporting process for operational bugs.`
+        },
+        {
+          url: 'assets/projects/dronos/Custom Report Generation.png',
+          description: `In this system, users can customize their reports based on selected projects, missions, and sites. The reporting template adheres to a standard format. Users have the option to preview and modify the report content before generating the final report.`
         }
       ],
-      technologies: ['Javascript', 'Vue', 'Bookstrap', 'SCSS', 'Microfrontend', 'REST APIs', 'Vue I18n', 'Vuex'],
+      technologies: ['Javascript', 'Vue',  'Vuex', 'Bookstrap', 'SCSS', 'Microfrontend', 'REST APIs', 'Vue I18n',],
       githubUrl: '',
       liveUrl: '',
       features: [
@@ -301,22 +346,54 @@ export class ProjectsComponent {
       category: 'Web',
       description: 'Control and manage street lights',
       longDescription: 'Davista Lighting offers a robust solution for monitoring all lighting registered under the Davex company. The system features multiple roles—Super Admin, Organization Admin, and User—each with distinct access levels. Organization Admins can easily add, remove, and update lighting fixtures, organize them into different groups, control their on/off status, adjust dimming levels, and create schedules for selected lights. They can also monitor lights from various organizations using a map view and access reports from the dashboard and monitoring module. Additionally, the profile settings allow users to edit personal details, change passwords, and receive alarm notifications. In contrast, Users have limited management capabilities, primarily focused on viewing the system.',
-      imageUrl: 'assets/projects/testinggg.png',
+      imageUrl: 'assets/projects/davex/davex_automate.png',
       referenceImages: [
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/davex/davex_login.png',
+          description: 'Login interface'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/davex/davex_automate.png',
+          description: 'Outdoor automate device to control lux'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
-        }
+          url: 'assets/projects/davex/davex_alert.png',
+          description: 'Configuration alert management of the lights'
+        },
+        {
+          url: 'assets/projects/davex/davex_automation_controls.png',
+          description: 'Scheduling brightness level for specific lights'
+        },
+        {
+          url: 'assets/projects/davex/davex_control.png',
+          description: 'Control status of the lights'
+        },
+        {
+          url: 'assets/projects/davex/davex_dashboard_outdoor.png',
+          description: 'Overview of the lights with grouping, can control, edit, add and update of the lights.'
+        },
+        {
+          url: 'assets/projects/davex/davex_dashboard.png',
+          description: 'Overview of the lights with statistics'
+        },
+        {
+          url: 'assets/projects/davex/davex_organization.png',
+          description: 'Listing of organisation that involved.'
+        },
+        {
+          url: 'assets/projects/davex/davex_reporting.png',
+          description: 'Report of the alert lights'
+        },
+        {
+          url: 'assets/projects/davex/davex_setting.png',
+          description: 'Setting module to update password, profile and preference.'
+        },
+        {
+          url: 'assets/projects/davex/davex_user.png',
+          description: 'User management to add, update and delete user'
+        },
       ],
-      technologies: ['Typescript', 'Angular', 'Open Street Map', 'Nebular', 'Eva Icons', 'REST APIs', 'Ag Grid'],
+      technologies: ['Typescript', 'Angular V17', 'Open Street Map', 'Nebular', 'Eva Icons', 'REST APIs', 'Ag Grid'],
       githubUrl: '',
       liveUrl: '',
       features: [
@@ -342,46 +419,54 @@ export class ProjectsComponent {
       category: 'Web',
       description: 'Building Management System',
       longDescription: 'This proprietary Building Management System (BMS) offers tailored services to various clients, providing unique perspectives for each client. It features 3D, 2D, and schematic views of components primarily focused on HVAC, lighting, and chiller systems. Clients can monitor the on/off status of each component through animated visuals, tables, or detailed views, as well as control components and track their performance statistics and alarms. Each component is organized by category and building level. Additionally, the system includes user management features that enable clients to easily add, update, or remove users and their roles, as well as view the user audit trail.',
-      imageUrl: 'assets/projects/testinggg.png',
+      imageUrl: 'assets/projects/uc/Dashboard.png',
       referenceImages: [
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/uc/Dashboard.png',
+          description: 'We offer different perspectives of dashboard tailored to our clients. '
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/uc/Summary.png',
+          description: 'We offer different perspectives of dashboard tailored to our clients. '
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
+          url: 'assets/projects/uc/Role Management.png',
+          description: 'User Management allows users to create new roles with specific permissions. By selecting these permissions, users can enable access to view, add, remove, or update modules.'
         },
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/uc/Chiller.png',
+          description: 'Layout of chiller each of the clients'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/uc/Chiller2.png',
+          description: 'Layout of chiller each of the clients'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
+          url: 'assets/projects/uc/Chiller Details.png',
+          description: 'Details of each chillers'
         },
         {
-          url: 'assets/projects/testinggg.png',
-          description: 'Vendor registration and login interface'
+          url: 'assets/projects/uc/Chiller Schematic.png',
+          description: 'Layout of schematic chiller requested by client'
         },
         {
-          url: 'assets/projects/kpi-2.png',
-          description: 'KPI evaluation dashboard with metrics'
+          url: 'assets/projects/uc/FCU Floorplan.png',
+          description: 'Fan Coil Unit layout for the selected floor'
         },
         {
-          url: 'assets/projects/kpi-3.png',
-          description: 'Report generation and data visualization'
+          url: 'assets/projects/uc/Lighting Summary.png',
+          description: 'Summary of lighting for all floors'
+        },
+        {
+          url: 'assets/projects/uc/List floor.png',
+          description: 'List of the floors of the building'
+        },
+        {
+          url: 'assets/projects/uc/VAV Floorplan.png',
+          description: 'Variable Air Volume layout for selected floor'
         }
       ],
-      technologies: ['Typescript', 'Angular', 'Babylon.js', 'DrawIo', 'Prime NG', 'Prime Flex', 'MXGraph', 'REST APIs'],
+      technologies: ['Typescript', 'Angular V17', 'Babylon.js', 'DrawIo', 'Prime NG', 'Prime Flex', 'MXGraph', 'REST APIs'],
       githubUrl: '',
       liveUrl: '',
       features: [
@@ -401,54 +486,54 @@ export class ProjectsComponent {
         'Research and develop related libraries',
       ],
     },
-    {
-      id: 7,
-      title: 'Admin Portal & Unified Control',
-      client: 'MRANTI',
-      category: 'UI/UX',
-      description: 'A design for IoT Website',
-      longDescription: 'A comprehensive UI/UX design project for an IoT website system, focusing on creating an monitoring and managing of devices.',
-      imageUrl: 'assets/projects/uiux/ecommerce-main.png',
-      referenceImages: [
-        {
-          url: 'assets/projects/uiux/ecommerce-main.png',
-          description: 'Main app interface with featured products and categories'
-        },
-        {
-          url: 'assets/projects/uiux/ecommerce-cart.png',
-          description: 'Shopping cart with smooth animations and clear product details'
-        },
-        {
-          url: 'assets/projects/uiux/ecommerce-product.png',
-          description: 'Product detail page with image gallery and specifications'
-        },
-        {
-          url: 'assets/projects/uiux/ecommerce-checkout.png',
-          description: 'Streamlined checkout process with multiple payment options'
-        }
-      ],
-      technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing', 'Angular', 'Typescript', 'REST APIs', 'Prime NG', 'Tailwind CSS'],
-      githubUrl: '',
-      liveUrl: '',
-      features: [
-        'Dashboard',
-        'User Access Management',
-        'User Log Management',
-        'Alarm Handler',
-        'Manual Data Entry',
-        'Widget Management',
-        'Report Generation',
-      ],
-      challenges: [
-        'Handling UIUX for IoT System',
-        'First time working with IoT System and UIUX Design',
-      ],
-      solutions: [
-        'Managed to understand the requirements and the flow of the system',
-        'Getting helped from leader to understand the system and requirements',
-        'Managed to get used to tools and libraries of figma',
-      ],
-    },
+    // {
+    //   id: 7,
+    //   title: 'Admin Portal & Unified Control',
+    //   client: 'MRANTI',
+    //   category: 'UI/UX',
+    //   description: 'A design for IoT Website',
+    //   longDescription: 'A comprehensive UI/UX design project for an IoT website system, focusing on creating an monitoring and managing of devices.',
+    //   imageUrl: 'assets/projects/uiux/ecommerce-main.png',
+    //   referenceImages: [
+    //     {
+    //       url: 'assets/projects/uiux/ecommerce-main.png',
+    //       description: 'Main app interface with featured products and categories'
+    //     },
+    //     {
+    //       url: 'assets/projects/uiux/ecommerce-cart.png',
+    //       description: 'Shopping cart with smooth animations and clear product details'
+    //     },
+    //     {
+    //       url: 'assets/projects/uiux/ecommerce-product.png',
+    //       description: 'Product detail page with image gallery and specifications'
+    //     },
+    //     {
+    //       url: 'assets/projects/uiux/ecommerce-checkout.png',
+    //       description: 'Streamlined checkout process with multiple payment options'
+    //     }
+    //   ],
+    //   technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'User Research', 'Wireframing', 'Angular', 'Typescript', 'REST APIs', 'Prime NG', 'Tailwind CSS'],
+    //   githubUrl: '',
+    //   liveUrl: '',
+    //   features: [
+    //     'Dashboard',
+    //     'User Access Management',
+    //     'User Log Management',
+    //     'Alarm Handler',
+    //     'Manual Data Entry',
+    //     'Widget Management',
+    //     'Report Generation',
+    //   ],
+    //   challenges: [
+    //     'Handling UIUX for IoT System',
+    //     'First time working with IoT System and UIUX Design',
+    //   ],
+    //   solutions: [
+    //     'Managed to understand the requirements and the flow of the system',
+    //     'Getting helped from leader to understand the system and requirements',
+    //     'Managed to get used to tools and libraries of figma',
+    //   ],
+    // },
   ];
   constructor(private router: Router) {}
   goToPage(project: Project) {
