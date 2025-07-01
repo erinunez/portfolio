@@ -1,7 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import emailjs from '@emailjs/browser';
-import { FormsModule } from '@angular/forms';
-import { ToastComponent } from '../../../shared/components/toast/toast.component';
+
 
 @Component({
   selector: 'app-contacts',
