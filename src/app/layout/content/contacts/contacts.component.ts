@@ -37,32 +37,32 @@ export class ContactsComponent {
   }
 
   async onSubmit() {
-    this.showToastMessage('Message sent successfully!', 'success');
+    // this.showToastMessage('Message sent successfully!', 'success');
     
-    // try {
-    //   this.isLoading = true;
+    try {
+      this.isLoading = true;
 
-    //   const templateParams = {
-    //     from_name: this.formData.name,
-    //     from_email: this.formData.email,
-    //     subject: this.formData.subject,
-    //     message: this.formData.message,
-    //   };
+      const templateParams = {
+        from_name: this.formData.name,
+        from_email: this.formData.email,
+        subject: this.formData.subject,
+        message: this.formData.message,
+      };
 
-    //   await emailjs.send(
-    //     'service_d133bcp', // Replace with your EmailJS service ID
-    //     'template_jerz8ao', // Replace with your EmailJS template ID
-    //     templateParams
-    //   );
+      await emailjs.send(
+        'service_d133bcp', // Replace with your EmailJS service ID
+        'template_jerz8ao', // Replace with your EmailJS template ID
+        templateParams
+      );
 
-    //   this.showToastMessage('Message sent successfully!', 'success');
-    //   this.resetForm();
-    // } catch (error) {
-    //   this.showToastMessage('Failed to send message. Please try again later.', 'error');
-    //   console.error('Error sending email:', error);
-    // } finally {
-    //   this.isLoading = false;
-    // }
+      this.showToastMessage('Message sent successfully!', 'success');
+      this.resetForm();
+    } catch (error) {
+      this.showToastMessage('Failed to send message. Please try again later.', 'error');
+      console.error('Error sending email:', error);
+    } finally {
+      this.isLoading = false;
+    }
   }
 
   downloadResume() {
